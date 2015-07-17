@@ -21,22 +21,27 @@ span.wip .complete {
 }
 
 span.email .complete {
+    font-weight: bold;
     color: #d44738;
 }
 
 span.linkedin .complete {
+    font-weight: bold;
     color: #0077B5;
 }
 
 span.quora .complete {
+    font-weight: bold;
     color: #a62400;
 }
 
 span.github .complete {
+    font-weight: bold;
     color: #171515;
     background-color: white;
 }
 
 span.twitter .complete {
+    font-weight: bold;
     color: #55ACEE;
 }
