@@ -29,6 +29,7 @@ Array.prototype.sum = function() {
         writeCommand = ":w",
         currentMessage = "",
         contentNode = document.getElementById('content'),
+        exCmdNode = document.getElementsByClassName("ex-cmd")[0],
         command = "",
         I = 0,
         startOfWord = true,
@@ -92,7 +93,7 @@ Array.prototype.sum = function() {
         },
         commandWriter = function() {
             command += writeCommand[I++];
-            document.getElementsByClassName("ex-cmd")[0].textContent = command;
+            exCmdNode.textContent = command;
             if(I == messageLength) {
                 cursorBlinkInterval = setInterval(cursorBlink, 500);
                 clearInterval(commandWriterInterval);
@@ -111,6 +112,7 @@ Array.prototype.sum = function() {
         cursorBlinkInterval = setInterval(cursorBlink, 500),
         contentWriterInterval = setTimeout(function activateInsertMode(){
             cursor.setAttribute('class', 'cursor');
+            exCmdNode.textContent = '-- INSERT --';
             clearInterval(cursorBlinkInterval);
             contentWriterInterval = setInterval(contentWriter, 50);
         }, 3000),
