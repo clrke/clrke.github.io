@@ -20,3 +20,23 @@ span.wip .complete {
     bottom: 5px;
 }
 
+span.email .complete {
+    color: #d44738;
+}
+
+span.linkedin .complete {
+    color: #0077B5;
+}
+
+span.quora .complete {
+    color: #a62400;
+}
+
+span.github .complete {
+    color: #171515;
+    background-color: white;
+}
+
+span.twitter .complete {
+    color: #55ACEE;
+}
