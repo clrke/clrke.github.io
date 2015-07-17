@@ -45,3 +45,11 @@ span.twitter .complete {
     font-weight: bold;
     color: #55ACEE;
 }
+
+span.cursor {
+    background-color: white;
+}
+
+span.cursor.blink {
+    background-color: black;
+}

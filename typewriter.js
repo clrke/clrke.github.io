@@ -21,6 +21,9 @@ Array.prototype.sum = function() {
             "http://github.com/arkeidolon",
             "Quora:",
             "http://quora.com/Clarke-Benedict-Plumo",
+            '...And for my favorite quote:',
+            '"The best way to make your dreams come true is to wake up."',
+            '- Paul Valery',
         ],
         writeCommand = ":w",
         currentMessage = "",
@@ -67,6 +70,7 @@ Array.prototype.sum = function() {
                 wordNode = document.createElement('span');
 
                 messageNode.appendChild(wordNode);
+                messageNode.appendChild(cursor);
             }
 
             else if(message[i] == ' ' || message[i] == '.') {
@@ -81,15 +85,34 @@ Array.prototype.sum = function() {
                 clearInterval(contentWriterInterval);
                 commandWriterInterval = setInterval(commandWriter, 200);
                 messageLength = writeCommand.length;
+
+                cursor.setAttribute('class', 'cursor blink');
             }
         },
         commandWriter = function() {
             command += writeCommand[I++];
             document.getElementsByClassName("ex-cmd")[0].textContent = command;
             if(I == messageLength) {
+                cursorBlinkInterval = setInterval(cursorBlink, 500);
                 clearInterval(commandWriterInterval);
             }
         },
-        contentWriterInterval = setInterval(contentWriter, 50),
+        cursor = document.getElementsByClassName('cursor')[0],
+        cursorBlinked = false,
+        cursorBlink = function (){
+            cursorBlinked = !cursorBlinked;
+            if(cursorBlinked) {
+                cursor.setAttribute('class', 'cursor blink');
+            } else {
+                cursor.setAttribute('class', 'cursor');
+            }
+        },
+        cursorBlinkInterval = setInterval(cursorBlink, 500),
+        contentWriterInterval = setTimeout(function activateInsertMode(){
+            cursor.setAttribute('class', 'cursor');
+            clearInterval(cursorBlinkInterval);
+            contentWriterInterval = setInterval(contentWriter, 50);
+        }, 3000),
         commandWriterInterval;
 })();
+
