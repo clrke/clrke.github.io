@@ -19,7 +19,7 @@ Array.prototype.sum = function() {
             "Email address:",
             "clarke.plumo@gmail.com",
             "LinkedIn:",
-            "https://www.linkedin.com/profile/view?id=381188799",
+            "https://ph.linkedin.com/pub/clarke-benedict-plumo/a7/7ab/453",
             "Twitter:",
             "http://twitter.com/arkeidolon",
             "Github:",
