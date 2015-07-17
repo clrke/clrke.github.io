@@ -6,7 +6,7 @@ Array.prototype.sum = function() {
 (function() {
     var messages = [
             "Hi friends! I'm",
-            "Clarke Benedict Tapay Plumo",
+            "Clarke",
             "and this website is a",
             "work in progress",
             ".",
