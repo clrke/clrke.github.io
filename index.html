@@ -3,31 +3,58 @@
 <head> <title> Clarke Benedict Tapay Plumo </title> </head>
 <body style="background-color: black; color: white">
 	<div style="font-family:'monospace'" id="content">
+		<span></span>
+		<span style="color: yellow;"></span>
+		<span></span>
 	</div>
 	<div style="position: absolute; bottom: 5px; font-family:'monospace'" id='ex-cmd'>
 		-- INSERT --
 	</div>
 	<script type="text/javascript">
-		var originalMessage = "Hi, I'm Clarke and this is a work in progress.",
+		var message1 = "Hi, I'm ",
+			authorName = "Clarke",
+			message2 = " and this is a work in progress.",
 			writeCommand = ":w",
 			currentMessage = "",
+			contentNode = document.getElementById('content'),
 			command = "",
-			i = 0,
-			length = originalMessage.length,
+			I = 0,
+			messageLength = message1.length + authorName.length + message2.length,
 			contentWriter = function() {
-				currentMessage += originalMessage[i++];
-				document.getElementById("content").textContent = currentMessage;
-				if(i == length) {
-					i = 0;
+				var i;
+
+				if(I < message1.length) {
+					message = message1;
+					i = I;
+					spanIndex = 0;
+				}
+				else if(I < message1.length + authorName.length) {
+					message = authorName;
+					i = I - message1.length;
+					spanIndex = 1;
+				}
+				else {
+					message = message2;
+					i = I - message1.length - authorName.length;
+					spanIndex = 2;
+				}
+
+				I++;
+
+				messageNode = contentNode.getElementsByTagName('span')[spanIndex];
+				messageNode.textContent += message[i];
+
+				if(I == messageLength) {
+					I = 0;
 					clearInterval(contentWriterInterval);
 					commandWriterInterval = setInterval(commandWriter, 200);
-					length = writeCommand.length;
+					messageLength = writeCommand.length;
 				}
 			},
 			commandWriter = function() {
-				command += writeCommand[i++];
+				command += writeCommand[I++];
 				document.getElementById("ex-cmd").textContent = command;
-				if(i == length) {
+				if(I == messageLength) {
 					clearInterval(commandWriterInterval);
 				}
 			},
