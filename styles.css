@@ -5,11 +5,16 @@ body {
     color: white;
 }
 
-.author-name {
+span.author-name {
     color: yellow;
 }
 
+span.wip {
+    color: red;
+}
+
 .ex-cmd {
-    position: absolute; 
+    position: absolute;
     bottom: 5px;
 }
+
