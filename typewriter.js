@@ -34,6 +34,7 @@ Array.prototype.sum = function() {
             'repo',
             '! Thanks!',
         ],
+        typingSpeedField = document.getElementById('typing-speed'),
         writeCommand = ":w",
         currentMessage = "",
         contentNode = document.getElementById('content'),
@@ -90,11 +91,12 @@ Array.prototype.sum = function() {
 
             if(I == messageLength) {
                 I = 0;
-                clearInterval(contentWriterInterval);
                 commandWriterInterval = setInterval(commandWriter, 200);
                 messageLength = writeCommand.length;
 
                 cursor.setAttribute('class', 'cursor blink');
+            } else {
+                contentWriterInterval = setTimeout(contentWriter, typingSpeedField.value);
             }
         },
         commandWriter = function() {
@@ -120,7 +122,7 @@ Array.prototype.sum = function() {
             cursor.setAttribute('class', 'cursor');
             exCmdNode.textContent = '-- INSERT --';
             clearInterval(cursorBlinkInterval);
-            contentWriterInterval = setInterval(contentWriter, 50);
+            contentWriterInterval = setTimeout(contentWriter, typingSpeedField.value);
         }, 3000),
         commandWriterInterval;
 })();

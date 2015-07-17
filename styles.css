@@ -64,3 +64,11 @@ blockquote .complete {
     color: green
 }
 
+div.options {
+    float: right;
+}
+
+#typing-speed {
+    width: 45px;
+}
+
