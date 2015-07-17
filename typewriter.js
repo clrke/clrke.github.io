@@ -26,7 +26,7 @@ Array.prototype.sum = function() {
             "http://github.com/arkeidolon",
             "Quora:",
             "http://quora.com/Clarke-Benedict-Plumo",
-            '...And for my favorite quote:',
+            '...And now for my favorite quote:',
             '"Whether you think you can, or you think you can\'t, you\'re right."',
             '- Henry Ford',
             '(Subject to change over time)',
