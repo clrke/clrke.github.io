@@ -1,31 +1,43 @@
+Array.prototype.sum = function() {
+    for (var i = 0, L = this.length, sum = 0; i < L; sum += this[i++]);
+    return sum;
+};
+
 (function() {
-    var message1 = "Hi, I'm ",
-        authorName = "Clarke Benedict Tapay Plumo",
-        message2 = " and this is a work in progress.",
+    var messages = [
+            "Hi, I'm",
+            "Clarke Benedict Tapay Plumo",
+            "and this is a",
+            "work in progress",
+            ".",
+        ],
         writeCommand = ":w",
         currentMessage = "",
         contentNode = document.getElementById('content'),
         command = "",
         I = 0,
-        messageLength = message1.length + authorName.length + message2.length,
+        messageLength = messages.map(function(message) {
+            return message.length;
+        }).sum(),
+        getMessageDetails = function(messages, I) {
+            var messagesLength = messages.length;
+            for(var i = 0; i < messagesLength && messages[i].length <= I; i++) {
+                I -= messages[i].length;
+            }
+
+            message = messages[i];
+            spanIndex = i;
+
+            return [message, I, spanIndex];
+        },
         contentWriter = function() {
             var i;
 
-            if(I < message1.length) {
-                message = message1;
-                i = I;
-                spanIndex = 0;
-            }
-            else if(I < message1.length + authorName.length) {
-                message = authorName;
-                i = I - message1.length;
-                spanIndex = 1;
-            }
-            else {
-                message = message2;
-                i = I - message1.length - authorName.length;
-                spanIndex = 2;
-            }
+            messageDetails = getMessageDetails(messages, I);
+
+            var message = messageDetails[0],
+                i = messageDetails[1],
+                spanIndex = messageDetails[2];
 
             I++;
 
