@@ -1,0 +1,15 @@
+body {
+	font-family: monospace;
+	font-size: 20px;
+	background-color: black;
+	color: white;
+}
+
+.author-name {
+	color: yellow;
+}
+
+.ex-cmd {
+	position: absolute; 
+	bottom: 5px;
+}
