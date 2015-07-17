@@ -16,6 +16,8 @@ Array.prototype.sum = function() {
         contentNode = document.getElementById('content'),
         command = "",
         I = 0,
+        startOfWord = true,
+        wordNode = null,
         messageLength = messages.map(function(message) {
             return message.length;
         }).sum(),
@@ -23,6 +25,11 @@ Array.prototype.sum = function() {
             var messagesLength = messages.length;
             for(var i = 0; i < messagesLength && messages[i].length <= I; i++) {
                 I -= messages[i].length;
+            }
+
+            if(I == 0 && wordNode) {
+                wordNode.setAttribute('class', 'complete');
+                startOfWord = true;
             }
 
             message = messages[i];
@@ -41,8 +48,22 @@ Array.prototype.sum = function() {
 
             I++;
 
-            messageNode = contentNode.getElementsByTagName('span')[spanIndex];
-            messageNode.textContent += message[i];
+            messageNode = contentNode.getElementsByClassName('message')[spanIndex];
+
+            if(startOfWord) {
+                startOfWord = false;
+
+                wordNode = document.createElement('span');
+
+                messageNode.appendChild(wordNode);
+            }
+
+            else if(message[i] == ' ' || message[i] == '.') {
+                wordNode.setAttribute('class', 'complete');
+                startOfWord = true;
+            }
+
+            wordNode.textContent += message[i];
 
             if(I == messageLength) {
                 I = 0;

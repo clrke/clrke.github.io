@@ -5,11 +5,13 @@ body {
     color: white;
 }
 
-span.author-name {
+span.author-name .complete{
+    font-weight: bold;
     color: yellow;
 }
 
-span.wip {
+span.wip .complete {
+    font-weight: bold;
     color: red;
 }
 
