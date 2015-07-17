@@ -15,9 +15,11 @@ span.wip .complete {
     color: red;
 }
 
-.ex-cmd {
-    position: absolute;
-    bottom: 5px;
+div.ex-cmd {
+    position: fixed;
+    bottom: 0px;
+    background-color: black;
+    width: 100%
 }
 
 span.email .complete {
@@ -53,3 +55,8 @@ span.cursor {
 span.cursor.blink {
     background-color: black;
 }
+
+#content {
+    padding-bottom: 20px;
+}
+
