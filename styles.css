@@ -66,6 +66,9 @@ blockquote .complete {
 
 div.options {
     float: right;
+    background-color: #222;
+    border-bottom-left-radius: 25px;
+    padding: 10px;
 }
 
 #typing-speed {
