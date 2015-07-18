@@ -9,6 +9,8 @@ Array.prototype.sum = function() {
 };
 
 (function() {
+    "use strict";
+
     var messages = [
             "Hi friends! I'm",
             "Clarke",
@@ -57,15 +59,15 @@ Array.prototype.sum = function() {
                 startOfWord = true;
             }
 
-            message = messages[i];
-            spanIndex = i;
+            var message = messages[i];
+            var spanIndex = i;
 
             return [message, I, spanIndex];
         },
         contentWriter = function() {
             var i;
 
-            messageDetails = getMessageDetails(messages, I);
+            var messageDetails = getMessageDetails(messages, I);
 
             var message = messageDetails[0],
                 i = messageDetails[1],
@@ -73,7 +75,7 @@ Array.prototype.sum = function() {
 
             I++;
 
-            messageNode = contentNode.getElementsByClassName('message')[spanIndex];
+            var messageNode = contentNode.getElementsByClassName('message')[spanIndex];
 
             if(startOfWord) {
                 startOfWord = false;
