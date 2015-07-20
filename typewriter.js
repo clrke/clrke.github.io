@@ -86,7 +86,7 @@ Array.prototype.sum = function() {
                 messageNode.appendChild(cursor);
             }
 
-            if(i+1 >= message.length || message[i+1] == ' ' || message[i+1] == '.') {
+            if(i+1 >= message.length || message[i+1] == ' ') {
                 wordNode.setAttribute('class', 'complete');
                 startOfWord = true;
             }

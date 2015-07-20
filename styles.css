@@ -75,3 +75,16 @@ div.options {
     width: 45px;
 }
 
+a {
+    text-decoration: none;
+}
+
+a span:not(.complete) {
+    cursor: pointer;
+    color: white;
+}
+
+a span.complete {
+    text-decoration: underline;
+}
+
