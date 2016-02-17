@@ -1,24 +1,24 @@
 body {
     font-family: monospace;
     font-size: 20px;
-    background-color: black;
-    color: white;
+    background-color: #2b2b2b;
+    color: #d8d8d8;
 }
 
 span.author-name .complete{
     font-weight: bold;
-    color: yellow;
+    color: #629755;
 }
 
 span.wip .complete {
     font-weight: bold;
-    color: red;
+    color: #ccdf32;
 }
 
 div.ex-cmd {
     position: fixed;
     bottom: 0px;
-    background-color: black;
+    background-color: #2b2b2b;
     width: 100%
 }
 
@@ -40,7 +40,7 @@ span.quora .complete {
 span.github .complete {
     font-weight: bold;
     color: #171515;
-    background-color: white;
+    background-color: #d8d8d8;
 }
 
 span.twitter .complete {
@@ -49,11 +49,11 @@ span.twitter .complete {
 }
 
 span.cursor {
-    background-color: white;
+    background-color: #d8d8d8;
 }
 
 span.cursor.blink {
-    background-color: black;
+    background-color: #2b2b2b;
 }
 
 #content {
@@ -61,12 +61,12 @@ span.cursor.blink {
 }
 
 blockquote {
-    color: green
+    color: #629755;
 }
 
 div.options {
     float: right;
-    background-color: #222;
+    background-color: #424445;
     border-bottom-left-radius: 25px;
     padding: 10px;
 }
