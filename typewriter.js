@@ -28,7 +28,10 @@ Array.prototype.sum = function() {
             "http://quora.com/Clarke-Benedict-Plumo",
             "Email:",
             "clarke.plumo@gmail.com",
-            'I hope you liked the \"vi\" feel of this website. However, I am very, very, very sorry; you can\'t vi here for realz yet. If you do know how to implement that, please contribute to this',
+            'I hope you liked the "vi" feel of this website. ' +
+                'However, I am very, very, very sorry; you can\'t ' +
+                'vi here for realz yet. ' +
+                'If you do know how to implement that, please contribute to this',
             'repo',
             '! Thanks!',
             '...And now for my favorite quote:',
