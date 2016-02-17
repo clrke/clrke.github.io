@@ -17,27 +17,27 @@ Array.prototype.sum = function() {
             "and this website is a",
             "work in progress",
             ".",
-            "In the meantime, feel free to keep in touch with me via:",
-            "LinkedIn:",
+            "\nIn the meantime, feel free to keep in touch with me via:",
+            "\nLinkedIn:",
             "https://ph.linkedin.com/pub/clarke-benedict-plumo/a7/7ab/453",
-            "Twitter:",
+            "\nTwitter:",
             "http://twitter.com/__arke",
-            "Github:",
+            "\nGithub:",
             "http://github.com/cl4rke",
-            "Quora:",
+            "\nQuora:",
             "http://quora.com/Clarke-Benedict-Plumo",
-            "Email:",
+            "\nEmail:",
             "clarke.plumo@gmail.com",
-            'I hope you liked the "vi" feel of this website. ' +
+            '\nI hope you liked the "vi" feel of this website. ' +
                 'However, I am very, very, very sorry; you can\'t ' +
                 'vi here for realz yet. ' +
                 'If you do know how to implement that, please contribute to this',
             'repo',
             '! Thanks!',
-            '...And now for my favorite quote:',
-            '"Whether you think you can, or you think you can\'t, you\'re right."',
+            '\n...And now for my favorite quote:',
+            '\n"Whether you think you can, or you think you can\'t, you\'re right."',
             '- Henry Ford',
-            '(Subject to change over time)',
+            '\n(Subject to change over time)',
         ],
         typingSpeedField = document.getElementById('typing-speed'),
         writeCommand = ":w",
@@ -67,6 +67,19 @@ Array.prototype.sum = function() {
 
             return [message, I, spanIndex];
         },
+        getMultiplier = function(typedChar) {
+            if (typedChar == ' ' || typedChar == '/') {
+                return 2;
+            }
+            if (typedChar == ',') {
+                return 10;
+            }
+            if (typedChar == '.' || typedChar == '!' ||
+                    typedChar == '?' || typedChar == '\n') {
+                return 15;
+            }
+            return 1;
+        },
         contentWriter = function() {
             var i;
 
@@ -94,7 +107,8 @@ Array.prototype.sum = function() {
                 startOfWord = true;
             }
 
-            wordNode.textContent += message[i];
+            var typedChar = message[i];
+            wordNode.textContent += typedChar;
 
             if(I == messageLength) {
                 I = 0;
@@ -103,7 +117,10 @@ Array.prototype.sum = function() {
 
                 cursor.setAttribute('class', 'cursor blink');
             } else {
-                contentWriterInterval = setTimeout(contentWriter, typingSpeedField.value);
+                contentWriterInterval = setTimeout(
+                        contentWriter,
+                        typingSpeedField.value * getMultiplier(typedChar)
+                );
             }
         },
         commandWriter = function() {
