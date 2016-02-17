@@ -67,16 +67,25 @@ Array.prototype.sum = function() {
 
             return [message, I, spanIndex];
         },
-        getMultiplier = function(typedChar) {
-            if (typedChar == ' ' || typedChar == '/') {
-                return 2;
-            }
-            if (typedChar == ',') {
-                return 10;
-            }
-            if (typedChar == '.' || typedChar == '!' ||
-                    typedChar == '?' || typedChar == '\n') {
-                return 15;
+        getMultiplier = function(typedChar, nextChar) {
+            switch(typedChar) {
+                case ' ':
+                case '/':
+                    return 2;
+                case ',':
+                case ';':
+                    return 10;
+                case '.':
+                    if (nextChar == '.' || nextChar == ' ') {
+                        return 15;
+                    }
+                case '!':
+                case '?':
+                    if (nextChar != ' ') {
+                        break;
+                    }
+                case '\n':
+                    return 15;
             }
             return 1;
         },
@@ -107,7 +116,8 @@ Array.prototype.sum = function() {
                 startOfWord = true;
             }
 
-            var typedChar = message[i];
+            var typedChar = message[i],
+                nextChar = i+1 < message.length ? message[i+1] : null;
             wordNode.textContent += typedChar;
 
             if(I == messageLength) {
@@ -119,7 +129,8 @@ Array.prototype.sum = function() {
             } else {
                 contentWriterInterval = setTimeout(
                         contentWriter,
-                        typingSpeedField.value * getMultiplier(typedChar)
+                        typingSpeedField.value *
+                            getMultiplier(typedChar, nextChar)
                 );
             }
         },
