@@ -31,8 +31,8 @@ Array.prototype.sum = function() {
             '\nI hope you liked the "vi" feel of this website. ' +
                 'However, I am very, very, very sorry; you can\'t ' +
                 'vi here for realz yet. ' +
-                'If you do know how to implement that, please contribute to this',
-            'repo',
+                'If you do know how to implement that, please contribute to',
+            'this repo',
             '! Thanks!',
             '\n...And now for my favorite quote:',
             '\n"Whether you think you can, or you think you can\'t, you\'re right."',
