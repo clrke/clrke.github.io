@@ -85,6 +85,7 @@ a span:not(.complete) {
 }
 
 a span.complete {
+    color: #8be9fd;
     text-decoration: underline;
 }
 
