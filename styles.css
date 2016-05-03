@@ -11,7 +11,6 @@ span.author-name .complete{
 }
 
 span.wip .complete {
-    font-weight: bold;
     color: #ccdf32;
 }
 
@@ -39,8 +38,7 @@ span.quora .complete {
 
 span.github .complete {
     font-weight: bold;
-    color: #171515;
-    background-color: #d8d8d8;
+    color: #d8d8d8;
 }
 
 span.twitter .complete {
@@ -87,5 +85,29 @@ a span:not(.complete) {
 a span.complete {
     color: #8be9fd;
     text-decoration: underline;
+}
+
+a.twitter span.complete {
+    color: #55ACEE;
+}
+
+a.github span.complete {
+    color: #d8d8d8;
+}
+
+a.quora span.complete {
+    color: #a62400;
+}
+
+a.linkedin span.complete {
+    color: #0077B5;
+}
+
+a.email span.complete {
+    color: #d44738;
+}
+
+table tr td:first-child {
+    width: 7em;
 }
 
