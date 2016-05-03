@@ -14,10 +14,8 @@ Array.prototype.sum = function() {
     var messages = [
             "Hi friends! I'm",
             "Clarke",
-            "and this website is a",
-            "work in progress",
-            ".",
-            "\nIn the meantime, feel free to keep in touch with me via:",
+            "\n\n- a game developer x web developer x data scientist.",
+            "\n\n\nFeel free to keep in touch with me via:",
             "\nLinkedIn:",
             "https://ph.linkedin.com/pub/clarke-benedict-plumo/a7/7ab/453",
             "\nTwitter:",
@@ -28,13 +26,13 @@ Array.prototype.sum = function() {
             "http://quora.com/Clarke-Benedict-Plumo",
             "\nEmail:",
             "clarke.plumo@gmail.com",
-            '\nI hope you liked the "vi" feel of this website. ' +
+            '\n\n\nI hope you liked the "vi" feel of this website. ' +
                 'However, I am very, very, very sorry; you can\'t ' +
                 'vi here for realz yet. ' +
                 'If you do know how to implement that, please contribute to',
             'this repo',
             '! Thanks!',
-            '\n...And now for my favorite quote:',
+            '\n\n\n...And now for my favorite quote:',
             '\n"Whether you think you can, or you think you can\'t, you\'re right."',
             '- Henry Ford',
             '\n(Subject to change over time)',
@@ -72,8 +70,13 @@ Array.prototype.sum = function() {
                 case ' ':
                 case '/':
                     return 2;
+                case '-':
+                    if (nextChar != ' ') {
+                        break;
+                    }
                 case ',':
                 case ';':
+                case 'x':
                     return 10;
                 case '.':
                     if (nextChar == '.' || nextChar == ' ') {
