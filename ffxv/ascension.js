@@ -113,27 +113,6 @@ $(document).ready(function() {
                 }
             ],
         }, {
-            name: 'Prompto',
-            skills: [{
-                    name: 'Piercer', ap: 0,
-                    description: 'Pierce target with a firearm to hit multiple enemies in a line. Reduces enemy defense. Can destroy appendages and create openings.',
-                    children: [],
-                }
-            ],
-        }, {
-            name: 'Ignis',
-            skills: [{
-                    name: 'Mark', ap: 0,
-                    description: 'Set up Noctis to warp-strike multiple enemies in succession with a dagger. Can create openings.',
-                    children: [{
-                            name: 'Analyze', ap: 6,
-                            description: 'Automatically scan most enemies with Libra. Adds to tech bar.',
-                            children: [],
-                        }
-                    ],
-                }
-            ],
-        }, {
             name: 'Gladiolus',
             skills: [{
                     name: 'Tempest', ap: 0,
@@ -152,6 +131,90 @@ $(document).ready(function() {
                             name: 'Sentinel', ap: 12,
                             description: 'Equip shields.',
                             children: [],
+                        }
+                    ],
+                }
+            ],
+        }, {
+            name: 'Ignis',
+            skills: [{
+                    name: 'Mark', ap: 0,
+                    description: 'Set up Noctis to warp-strike multiple enemies in succession with a dagger. Can create openings.',
+                    children: [{
+                            name: 'Analyze', ap: 6,
+                            description: 'Automatically scan most enemies with Libra. Adds to tech bar.',
+                            children: [{
+                                name: 'Lancer', ap: 12,
+                                description: 'Equip polearms.',
+                                children: [],
+                            }],
+                        }, {
+                            name: 'Regenerate', ap: 8,
+                            description: 'Heal an ally with a hidden item when HP is high.',
+                            children: [{
+                                name: 'First aid', ap: 12,
+                                description: 'Recover a bit of HP when HP is low.',
+                                children: [],
+                            }],
+                        }
+                    ],
+                }
+            ],
+        }, {
+            name: 'Prompto',
+            skills: [{
+                    name: 'Piercer', ap: 0,
+                    description: 'Pierce target with a firearm to hit multiple enemies in a line. Reduces enemy defense. Can destroy appendages and create openings.',
+                    children: [{
+                            name: 'First Aid', ap: 12,
+                            description: 'Recover a bit of HP when HP is low.',
+                            children: [{
+                                    name: 'Machinist', ap: 12,
+                                    description: 'Equip machinery.',
+                                    children: [{
+                                            name: 'Fatal Blast', ap: 12,
+                                            description: "Weaken a scanned enemy's defense with a critical machinery hit.",
+                                            children: [{
+                                                name: 'Gravisphere', ap: '30 (?)',
+                                                description: "Draw enemies in an area closer together with machinery.",
+                                                children: [],
+                                            }],
+                                        }
+                                    ],
+                                }
+                            ],
+                        }, {
+                            name: 'Fatal Shot', ap: 8,
+                            description: "Weaken a scanned enemy's attack with a critical firearm hit.",
+                            children: [{
+                                name: '?', ap: '',
+                                description: "",
+                                children: [{
+                                    name: '?', ap: '',
+                                    description: "",
+                                    children: [],
+                                }],
+                            }, {
+                                name: 'First Shot', ap: 12,
+                                description: "Gain first strike with a firearm. Adds to tech bar.",
+                                children: [],
+                            }, {
+                                name: 'Scintilla', ap: 10,
+                                description: "Make an enemy flinch with a firearm attack after dodging",
+                                children: [{
+                                    name: '?', ap: '',
+                                    description: "",
+                                    children: [{
+                                        name: '?', ap: '',
+                                        description: "",
+                                        children: [],
+                                    }],
+                                }, {
+                                    name: '?', ap: '',
+                                    description: "",
+                                    children: [],
+                                }],
+                            }],
                         }
                     ],
                 }
