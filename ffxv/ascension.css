@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     z-index: 1;
-    background-image: url('http://vignette2.wikia.nocookie.net/finalfantasy/images/7/79/Final_Fantasy_XIV_ARR_crystal.jpg/revision/latest?cb=20130813092337');
+    background-image: url('crystal.jpg');
     opacity: 0.3;
     display: block;
 }
