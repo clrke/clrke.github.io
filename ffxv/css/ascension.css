@@ -1,0 +1,45 @@
+body {
+    color: #f2f2f2;
+    background-color: #0a0a0a;
+    background-image: linear-gradient(to top, #0a0a0a, transparent 20%, #0a0a0a), 
+        url("img/campfire.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: 100% auto;
+         -o-background-size: 100% auto;
+            background-size: 100% auto;
+}
+
+h1 {
+    text-transform: uppercase;
+    border-bottom: 1px solid;
+    margin-bottom: 25px;
+    padding-bottom: 5px;
+}
+
+h4 {
+    margin-bottom: 0px;
+}
+
+p {
+    margin: 0 0 1em -0.5em;
+    padding: 0.5em;
+    background: rgba(0,0,0, 0.2);
+    display: inline-block;
+    color: rgba(255,255,255, 0.6);
+}
+
+ul.ascension {
+    padding-left: 0;
+}
+
+/* skill group */
+ul.ascension ul.ascension-children {
+    border-left: 1px solid rgba(255,255,255, .2);
+}
+
+/* individual skills */
+ul.ascension li {
+    list-style: none;
+}
