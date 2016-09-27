@@ -118,19 +118,53 @@ $(document).ready(function() {
                     name: 'Tempest', ap: 0,
                     description: 'Unleash a sweaping area attack with a greatsword. Can create openings.',
                     children: [{
-                            name: 'Engage', ap: 6,
-                            description: 'Gain first strike with a greatsword. Adds to tech bar.',
-                            children: [
-                            ],
-                        }, {
                             name: 'Reflex', ap: 10,
                             description: 'Counterattack using a greatsword just before taking a hit.',
-                            children: [
-                            ],
+                            children: [],
+                        }, {
+                            name: 'Engage', ap: 6,
+                            description: 'Gain first strike with a greatsword. Adds to tech bar.',
+                            children: [{
+                                name: 'Engage', ap: 6,
+                                description: 'Gain first strike with a greatsword. Adds to tech bar.',
+                                children: [{
+                                    name: 'Fatal Blade', ap: 12,
+                                    description: "Weaken a scanned enemy's attack with a critical greatsword hit.",
+                                    children: [],
+                                }, {
+                                    name: 'Impulse', ap: 60,
+                                    description: 'Unleash a frontal, sweeping greatsword area attack. Can destroy appendages.',
+                                    children: [],
+                                }, {
+                                    name: '?', ap: '',
+                                    description: '',
+                                    children: [],
+                                }],
+                            }],
                         }, {
                             name: 'Sentinel', ap: 12,
                             description: 'Equip shields.',
-                            children: [],
+                            children: [{
+                                name: 'Fatal Bash', ap: 12,
+                                description: "Weaken a scanned enemy's defense with a critical shield hit.",
+                                children: [{
+                                    name: 'Antagonize', ap: 14,
+                                    description: "Step in to draw an enemy's attention when Noctis is guarding. Adds to tech bar.",
+                                    children: [{
+                                        name: 'Provoke', ap: 18,
+                                        description: 'Draw enemy attention with a shield. Can create openings for warp-strikes.',
+                                        children: [],
+                                    }],
+                                }],
+                            }, {
+                                name: 'Royal Guard', ap: 16,
+                                description: 'Move to quickly guard Noctis with a shield. Enables breakout attack from cover.',
+                                children: [{
+                                    name: 'Intercept', ap: 24,
+                                    description: 'Guard Noctis with a shield when HP is high. Adds to tech bar.',
+                                    children: [],
+                                }],
+                            }],
                         }
                     ],
                 }
@@ -152,9 +186,29 @@ $(document).ready(function() {
                             name: 'Regenerate', ap: 8,
                             description: 'Heal an ally with a hidden item when HP is high.',
                             children: [{
-                                name: 'First aid', ap: 12,
+                                name: 'First Aid', ap: 12,
                                 description: 'Recover a bit of HP when HP is low.',
-                                children: [],
+                                children: [{
+                                    name: 'Advanced First Aid', ap: 24,
+                                    description: "Recover a bit of HP and temporarily boost defense when HP is low.",
+                                    children: [{
+                                        name: 'Expert First Aid', ap: 48,
+                                        description: "Recover a bit of HP and temporarily boost defense and spirit when HP is low.",
+                                        children: [],
+                                    }],
+                                }],
+                            }, {
+                                name: "Savior's Fortitude", ap: 12,
+                                description: "Boost an ally's defense after taking them out of danger.",
+                                children: [{
+                                    name: 'Overwhelm', ap: 20,
+                                    description: 'Concentrate ally attacks on a single foe at a time.',
+                                    children: [],
+                                }, {
+                                    name: "Regroup", ap: 14,
+                                    description: "Bring all allies together in stalwart defense. Rescues from danger and restores HP quickly.",
+                                    children: [],
+                                }],
                             }],
                         }
                     ],
@@ -175,12 +229,28 @@ $(document).ready(function() {
                                             name: 'Fatal Blast', ap: 12,
                                             description: "Weaken a scanned enemy's defense with a critical machinery hit.",
                                             children: [{
-                                                name: 'Gravisphere', ap: '30 (?)',
+                                                name: 'Gravisphere', ap: 20,
                                                 description: "Draw enemies in an area closer together with machinery.",
+                                                children: [],
+                                            }],
+                                        }, {
+                                            name: 'Recoil', ap: 14,
+                                            description: "Deal heavy damage to a single enemy with machinery. Can destory appendages and create openings.",
+                                            children: [{
+                                                name: '?', ap: '?',
+                                                description: "",
                                                 children: [],
                                             }],
                                         }
                                     ],
+                                }, {
+                                    name: "Savior's Vengeance", ap: 14,
+                                    description: "Boost an ally's critical hit rate after taking them out of danger.",
+                                    children: [],
+                                }, {
+                                    name: 'Advanced First Aid', ap: 24,
+                                    description: "Recover a bit of HP and temporarily boost defense when HP is low.",
+                                    children: [],
                                 }
                             ],
                         }, {
@@ -215,6 +285,10 @@ $(document).ready(function() {
                                     children: [],
                                 }],
                             }],
+                        }, {
+                            name: 'Snapshot', ap: 20,
+                            description: "Take photos in battle. Up to five can be saved.",
+                            children: [],
                         }
                     ],
                 }
