@@ -2,7 +2,7 @@ body {
     color: #f2f2f2;
     background-color: #0a0a0a;
     background-image: linear-gradient(to top, #0a0a0a, transparent 20%, #0a0a0a), 
-        url("img/campfire.jpg");
+        url("../img/campfire.jpg");
     background-position: bottom;
     background-repeat: no-repeat;
     background-attachment: fixed;
