@@ -81,10 +81,10 @@ $(document).ready(function() {
                             ],
                         }, {
                             name: 'Accessory Slot', ap: 24,
-                            description: '',
+                            description: 'Equip two accessories',
                             children: [{
                                 name: '?', ap: '',
-                                description: 'Equip two accessories',
+                                description: '',
                                 children: [],
                             }],
                         }, {
@@ -95,7 +95,7 @@ $(document).ready(function() {
                                 description: "Boost damage inflicted on a scanned enemy's appendages.",
                                 children: [{
                                     name: '?', ap: '',
-                                    description: 'Equip two accessories',
+                                    description: '',
                                     children: [],
                                 }],
                             }, {
@@ -103,7 +103,7 @@ $(document).ready(function() {
                                 description: "Scan for stronger enemies' weakness and identify daemon appendages that can be destroyed.",
                                 children: [{
                                     name: '?', ap: '',
-                                    description: 'Equip two accessories',
+                                    description: '',
                                     children: [],
                                 }],
                             }],
@@ -120,7 +120,27 @@ $(document).ready(function() {
                     children: [{
                             name: 'Reflex', ap: 10,
                             description: 'Counterattack using a greatsword just before taking a hit.',
-                            children: [],
+                            children: [{
+                                name: '?', ap: '',
+                                description: '',
+                                children: [{
+                                    name: '?', ap: '',
+                                    description: '',
+                                    children: [{
+                                        name: '?', ap: '',
+                                        description: '',
+                                        children: [],
+                                    }],
+                                }],
+                            }, {
+                                name: '?', ap: '',
+                                description: '',
+                                children: [{
+                                    name: '?', ap: '',
+                                    description: '',
+                                    children: [],
+                                }],
+                            }],
                         }, {
                             name: 'Engage', ap: 6,
                             description: 'Gain first strike with a greatsword. Adds to tech bar.',
@@ -250,9 +270,17 @@ $(document).ready(function() {
                                 }, {
                                     name: 'Advanced First Aid', ap: 24,
                                     description: "Recover a bit of HP and temporarily boost defense when HP is low.",
-                                    children: [],
+                                    children: [{
+                                        name: 'Expert First Aid (?)', ap: 48,
+                                        description: "Recover a bit of HP and temporarily boost defense and spirit when HP is low.",
+                                        children: [],
+                                    }],
                                 }
                             ],
+                        }, {
+                            name: 'Snapshot', ap: 20,
+                            description: "Take photos in battle. Up to five can be saved.",
+                            children: [],
                         }, {
                             name: 'Fatal Shot', ap: 8,
                             description: "Weaken a scanned enemy's attack with a critical firearm hit.",
@@ -274,21 +302,17 @@ $(document).ready(function() {
                                 children: [{
                                     name: '?', ap: '',
                                     description: "",
+                                    children: [],
+                                }, {
+                                    name: '?', ap: '',
+                                    description: "",
                                     children: [{
                                         name: '?', ap: '',
                                         description: "",
                                         children: [],
                                     }],
-                                }, {
-                                    name: '?', ap: '',
-                                    description: "",
-                                    children: [],
                                 }],
                             }],
-                        }, {
-                            name: 'Snapshot', ap: 20,
-                            description: "Take photos in battle. Up to five can be saved.",
-                            children: [],
                         }
                     ],
                 }
