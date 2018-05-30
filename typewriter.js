@@ -21,7 +21,7 @@ Array.prototype.sum = function() {
             "x",
             "data scientist",
             "x",
-            "cryptocurrency trader",
+            "blockchain enthusiast",
             ".",
             "\n\n\nFeel free to keep in touch with me via:",
             "\nLinkedIn:",
