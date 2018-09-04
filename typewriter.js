@@ -25,7 +25,7 @@ Array.prototype.sum = function() {
             ".",
             "\n\n\nFeel free to keep in touch with me via:",
             "\nLinkedIn:",
-            "https://ph.linkedin.com/pub/clarke-benedict-plumo/a7/7ab/453",
+            "www.linkedin.com/in/cl4rke",
             "\nTwitter:",
             "http://twitter.com/__arke",
             "\nGithub:",
