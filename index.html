@@ -1,107 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clarke Plumo - Full-stack Engineer, Game Developer, Blockchain Enthusiast">
+    <title>Clarke Plumo</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120088836-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'UA-120088836-1');
     </script>
-
-    <title>Clarke Plumo</title>
-    <link rel='stylesheet' type='text/css' href='styles.css'>
-    <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
-    <div class='options'>
-        Typing interval:
-        <input type='number' id='typing-speed' value='20' min='0' max='999' />
-    </div>
-    <img src='cl4rke.png' style='display: none;' />
-    <div id="content">
-        <span class='message'></span>
-        <span class='message author-name'></span>
-        <span class='message'></span>
-        <span class='message wip'></span>
-        <span class='message'></span>
-        <span class='message wip'></span>
-        <span class='message'></span>
-        <span class='message wip'></span>
-        <span class='message'></span>
-        <span class='message wip'></span><span class='message'></span>
-        <span class='cursor'>&nbsp;</span>
-        <br/>
-        <br/>
-        <span class='message'></span>
-        <br/>
-        <br/>
-        <table>
-            <tr>
-                <td>
-                    <span class='message linkedin'></span>
-                    <span></span>
-                </td>
-                <td>
-                    <a class='message link email' target='_blank' href='https://www.linkedin.com/in/cl4rke'></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span></span><span></span><span class='message twitter'></span>
-                    <span></span>
-                </td>
-                <td>
-                    <a class='message link quora' target='_blank' href='https://twitter.com/_clrke'></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>&nbsp;</span><span class='message github'></span>
-                    <span></span>
-                </td>
-                <td>
-                    <a class='message link github' target='_blank' href='https://github.com/clrke'></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>&nbsp;&nbsp;</span><span class='message quora'></span>
-                    <span></span>
-                </td>
-                <td>
-                    <a class='message link twitter' target='_blank' href='https://www.quora.com/Clarke-Benedict-Plumo'></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span>&nbsp;&nbsp;</span>
-                    <span class='message email'></span>
-                    <span></span>
-                </td>
-                <td>
-                    <a class='message link linkedin' target='_blank' href='mailto:clarke.plumo@gmail.com'></a>
-                </td>
-            </tr>
-        </table>
-        <br/>
-        <span class='message'></span>
-        <a class='message' target='_blank'
-            href='http://github.com/cl4rke/cl4rke.github.io'></a><span class='message'></span>
-        <br/>
-        <br/>
-        <br/>
-        <span class='message'></span>
-        <blockquote>
-            <span class='message'></span>
-            <cite class='message'></cite>
-        </blockquote>
-        <span class='message'></span>
-    </div>
-    <div class='ex-cmd'>:tabe index.html</div>
-    <script type="text/javascript" src='typewriter.js'></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
-
