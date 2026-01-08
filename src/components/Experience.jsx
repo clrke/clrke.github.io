@@ -49,25 +49,12 @@ function Experience() {
   return (
     <section className="card" id="experience">
       <h2>Experience</h2>
-      {experiences.map((exp, index) => (
-        <div key={index} className="experience-item">
+      {experiences.map((exp) => (
+        <div key={exp.company} className="experience-item">
           {exp.logo ? (
             <img src={exp.logo} alt={exp.company} className="experience-logo" />
           ) : (
-            <div className="experience-logo-placeholder" style={{
-              width: 56,
-              height: 56,
-              borderRadius: 8,
-              background: '#f0f0f0',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontFamily: 'JetBrains Mono',
-              fontSize: 20,
-              fontWeight: 700,
-              color: '#666',
-              flexShrink: 0
-            }}>
+            <div className="experience-logo-placeholder">
               {exp.company.charAt(0)}
             </div>
           )}

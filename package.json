@@ -2,7 +2,7 @@
   "name": "clrke.github.io",
   "version": "1.0.0",
   "description": "My clrke website",
-  "main": "typewriter.js",
+  "main": "src/main.jsx",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -5,7 +5,7 @@ function Header() {
     <header className="header">
       <div className="header-content">
         <a href="#" className="header-logo">clrke</a>
-        <nav className="header-nav">
+        <nav className="header-nav" aria-label="Main navigation">
           <a href="#about">about</a>
           <a href="#experience">experience</a>
           <a href="#projects">projects</a>

@@ -28,8 +28,8 @@ function Skills() {
     <section className="card" id="skills">
       <h2>Skills</h2>
       <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <span key={index} className="skill-tag">{skill}</span>
+        {skills.map((skill) => (
+          <span key={skill} className="skill-tag">{skill}</span>
         ))}
       </div>
     </section>

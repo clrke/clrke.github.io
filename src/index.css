@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,13 +14,13 @@
   --bg-dark: #1a1a2e;
   --bg-darker: #16162a;
   --bg-card: #ffffff;
-  --bg-card-dark: rgba(255, 255, 255, 0.05);
   --text-primary: #191919;
   --text-light: #e4e4e4;
   --text-secondary: #666666;
   --text-muted: #a0a0a0;
   --border: #e0e0e0;
   --border-dark: rgba(255, 255, 255, 0.1);
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 body {
@@ -38,11 +40,6 @@ body {
   padding: 24px 24px 48px;
   display: grid;
   gap: 16px;
-}
-
-/* Terminal-style monospace text */
-.mono {
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 /* Cursor blink animation */
@@ -70,7 +67,7 @@ body {
 }
 
 .card h2 {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -111,7 +108,7 @@ body {
 }
 
 .header-logo {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 700;
   color: var(--terminal-green);
@@ -126,13 +123,18 @@ body {
   color: var(--text-muted);
 }
 
+.header-logo:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 4px;
+}
+
 .header-nav {
   display: flex;
   gap: 24px;
 }
 
 .header-nav a {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   color: var(--text-muted);
   text-decoration: none;
   font-size: 14px;
@@ -140,8 +142,14 @@ body {
   transition: color 0.2s;
 }
 
-.header-nav a:hover {
+.header-nav a:hover,
+.header-nav a:focus-visible {
   color: var(--terminal-green);
+}
+
+.header-nav a:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 4px;
 }
 
 /* Profile Section */
@@ -165,15 +173,18 @@ body {
 .profile-banner::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: url('/cl4rke.png');
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('/cl4rke.webp');
   background-size: 60px;
   background-repeat: repeat;
   opacity: 0.05;
 }
 
 .profile-banner-text {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 14px;
   color: var(--terminal-green);
   opacity: 0.6;
@@ -239,12 +250,17 @@ body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.2s, transform 0.2s, border-color 0.2s, color 0.2s;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-family: 'Inter', sans-serif;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 4px;
 }
 
 .btn-primary {
@@ -262,7 +278,7 @@ body {
   background: transparent;
   color: var(--terminal-green);
   border: 2px solid var(--terminal-green);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
 }
 
 .btn-terminal:hover {
@@ -312,6 +328,21 @@ body {
   padding: 8px;
 }
 
+.experience-logo-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  color: #666;
+  flex-shrink: 0;
+}
+
 .experience-details h3 {
   margin-bottom: 4px;
   font-size: 16px;
@@ -325,7 +356,7 @@ body {
 }
 
 .experience-duration {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--text-muted);
   margin-bottom: 8px;
@@ -353,7 +384,7 @@ body {
   background: #fafafa;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid var(--border);
 }
 
@@ -372,7 +403,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 32px;
   font-weight: 700;
   color: white;
@@ -395,7 +426,7 @@ body {
 }
 
 .project-role {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   color: var(--primary);
   font-weight: 600;
@@ -417,8 +448,8 @@ body {
 }
 
 .tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   background: #e8e8e8;
   color: var(--text-secondary);
   padding: 4px 10px;
@@ -440,6 +471,11 @@ body {
   gap: 8px;
 }
 
+.project-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
 .project-link::after {
   content: '\2192';
 }
@@ -452,14 +488,14 @@ body {
 }
 
 .skill-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   background: #f0f0f0;
   color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .skill-tag:hover {
@@ -484,7 +520,7 @@ body {
   padding: 12px 20px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  transition: all 0.2s;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s, box-shadow 0.2s;
   background: #fafafa;
 }
 
@@ -493,6 +529,11 @@ body {
   background: white;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
 .contact-link svg {
@@ -511,7 +552,7 @@ body {
   text-align: center;
   padding: 40px 24px;
   color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 13px;
 }
 
@@ -522,6 +563,11 @@ body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.footer a:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 4px;
 }
 
 /* Quote section */
@@ -542,9 +588,22 @@ body {
 }
 
 .quote-author {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 14px;
   color: var(--terminal-green);
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Responsive */
