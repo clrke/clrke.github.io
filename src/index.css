@@ -14,12 +14,17 @@
   --bg-dark: #1a1a2e;
   --bg-darker: #16162a;
   --bg-card: #ffffff;
+  --bg-light: #fafafa;
+  --bg-lighter: #f5f5f5;
+  --bg-lightest: #f0f0f0;
   --text-primary: #191919;
   --text-light: #e4e4e4;
   --text-secondary: #666666;
+  --text-tertiary: #666666;
   --text-muted: #a0a0a0;
   --border: #e0e0e0;
   --border-dark: rgba(255, 255, 255, 0.1);
+  --tag-bg: #e8e8e8;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -177,10 +182,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url('/cl4rke.webp');
-  background-size: 60px;
-  background-repeat: repeat;
-  opacity: 0.05;
+  background: radial-gradient(circle at 20% 50%, rgba(98, 151, 85, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(10, 102, 194, 0.1) 0%, transparent 50%);
 }
 
 .profile-banner-text {
@@ -323,7 +326,7 @@ body {
   height: 56px;
   border-radius: 8px;
   object-fit: contain;
-  background: #f5f5f5;
+  background: var(--bg-lighter);
   flex-shrink: 0;
   padding: 8px;
 }
@@ -332,14 +335,14 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 8px;
-  background: #f0f0f0;
+  background: var(--bg-lightest);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 700;
-  color: #666;
+  color: var(--text-tertiary);
   flex-shrink: 0;
 }
 
@@ -381,7 +384,7 @@ body {
 }
 
 .project-card {
-  background: #fafafa;
+  background: var(--bg-light);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -450,7 +453,7 @@ body {
 .tag {
   font-family: var(--font-mono);
   font-size: 12px;
-  background: #e8e8e8;
+  background: var(--tag-bg);
   color: var(--text-secondary);
   padding: 4px 10px;
   border-radius: 4px;
@@ -489,7 +492,7 @@ body {
 
 .skill-tag {
   font-family: var(--font-mono);
-  background: #f0f0f0;
+  background: var(--bg-lightest);
   color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 20px;
@@ -521,7 +524,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 12px;
   transition: border-color 0.2s, background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  background: #fafafa;
+  background: var(--bg-light);
 }
 
 .contact-link:hover {

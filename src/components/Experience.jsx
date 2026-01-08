@@ -20,7 +20,7 @@ const experiences = [
     company: 'AtmosMed Pharmacy',
     duration: '2021 - Present',
     description: 'Building and operating a community pharmacy chain in Tarlac, Philippines. Overseeing technology solutions for inventory management and customer service.',
-    logo: '/atmosmed-logo.jpg'
+    logo: '/atmosmed-logo.png'
   },
   {
     title: 'Senior Full-stack Engineer',
@@ -34,7 +34,7 @@ const experiences = [
     company: 'White Cloak Technologies, Inc.',
     duration: '2017 - 2020',
     description: 'As Chief Information Officer at White Cloak, deployed to Union Bank of the Philippines. Led backend development for the UnionBank Online mobile banking app. Architected scalable services handling millions of transactions for core banking features including fund transfers, bill payments, and check deposits.',
-    logo: '/whitecloak.jpg'
+    logo: '/whitecloak.png'
   },
   {
     title: 'Data Scientist',
