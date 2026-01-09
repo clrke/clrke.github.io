@@ -1,5 +1,3 @@
-import React from 'react'
-
 const skills = [
   'JavaScript',
   'TypeScript',
@@ -29,7 +27,9 @@ function Skills() {
       <h2>Skills</h2>
       <div className="skills-grid">
         {skills.map((skill) => (
-          <span key={skill} className="skill-tag">{skill}</span>
+          <span key={skill} className="skill-tag">
+            {skill}
+          </span>
         ))}
       </div>
     </section>
