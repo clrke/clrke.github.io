@@ -1,16 +1,22 @@
 {
   "name": "clrke.github.io",
+  "private": true,
   "version": "1.0.0",
-  "description": "My clrke website",
+  "description": "Clarke Plumo's portfolio website",
+  "homepage": "https://clrke.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clrke/clrke.github.io"
+  },
   "main": "src/main.jsx",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["portfolio", "react", "vite"],
+  "author": "Clarke Plumo",
+  "license": "MIT",
   "dependencies": {
     "react": "^19.2.3",
     "react-dom": "^19.2.3"

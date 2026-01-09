@@ -20,7 +20,6 @@
   --text-primary: #191919;
   --text-light: #e4e4e4;
   --text-secondary: #666666;
-  --text-tertiary: #666666;
   --text-muted: #a0a0a0;
   --border: #e0e0e0;
   --border-dark: rgba(255, 255, 255, 0.1);
@@ -61,6 +60,12 @@ body {
   margin-left: 4px;
   animation: blink 1s infinite;
   vertical-align: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
 }
 
 /* Card Styles */
@@ -342,7 +347,7 @@ body {
   font-family: var(--font-mono);
   font-size: 20px;
   font-weight: 700;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   flex-shrink: 0;
 }
 
@@ -501,9 +506,15 @@ body {
   transition: background-color 0.2s, color 0.2s;
 }
 
-.skill-tag:hover {
+.skill-tag:hover,
+.skill-tag:focus-visible {
   background: var(--terminal-green);
   color: white;
+}
+
+.skill-tag:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 2px;
 }
 
 /* Contact Section */
