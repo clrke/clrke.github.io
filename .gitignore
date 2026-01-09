@@ -1,2 +1,8 @@
 *.swo
 *.swp
+.DS_Store
+.env*
+.vite/
+node_modules/
+dist/
+.claude/
