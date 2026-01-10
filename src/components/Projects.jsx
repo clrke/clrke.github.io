@@ -1,11 +1,10 @@
-import React from 'react'
-
 const projects = [
   {
     id: 'bettergov',
     name: 'BetterGovPH',
     role: 'Early Contributor',
-    description: 'An initiative to improve government services and transparency through modern technology solutions.',
+    description:
+      'An initiative to improve government services and transparency through modern technology solutions.',
     tags: ['GovTech', 'Civic Tech', 'Public Service', 'Transparency'],
     link: 'https://bettergov.ph/',
     imageClass: 'bettergov',
@@ -16,7 +15,8 @@ const projects = [
     id: 'unionbank',
     name: 'UnionBank Online',
     role: 'Lead Back-end Engineer',
-    description: 'Mobile banking app serving millions of Filipinos. Features include fund transfers, bill payments, check deposits, and real-time account management.',
+    description:
+      'Mobile banking app serving millions of Filipinos. Features include fund transfers, bill payments, check deposits, and real-time account management.',
     tags: ['Mobile Banking', 'iOS', 'Android', 'Finance', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
     imageClass: 'unionbank',
@@ -27,7 +27,8 @@ const projects = [
     id: 'ocm',
     name: 'OnChainMonkey',
     role: 'Senior Full-stack Engineer',
-    description: 'One of the first 10K PFP collections stored entirely on-chain. First to generate all images and metadata in a single transaction on Ethereum.',
+    description:
+      'One of the first 10K PFP collections stored entirely on-chain. First to generate all images and metadata in a single transaction on Ethereum.',
     tags: ['NFT', 'Ethereum', 'Bitcoin', 'Web3', 'Smart Contracts'],
     link: 'https://onchainmonkey.com/',
     imageClass: 'ocm',
@@ -38,7 +39,8 @@ const projects = [
     id: 'osura',
     name: 'Osura',
     role: 'Senior Full-stack Engineer',
-    description: 'Premier marketplace for high-end Bitcoin Ordinals collections. Curated platform for digital art permanently stored on the Bitcoin blockchain.',
+    description:
+      'Premier marketplace for high-end Bitcoin Ordinals collections. Curated platform for digital art permanently stored on the Bitcoin blockchain.',
     tags: ['Bitcoin Ordinals', 'NFT Marketplace', 'Web3', 'Digital Art'],
     link: 'https://osura.com/',
     imageClass: 'osura',
@@ -49,7 +51,8 @@ const projects = [
     id: 'squatopia',
     name: 'Squatopia',
     role: 'Owner',
-    description: 'Infinite action roguelike VR game where your body is the controller. Squat to launch energy blasts, weave through lasers, and parry fireballs.',
+    description:
+      'Infinite action roguelike VR game where your body is the controller. Squat to launch energy blasts, weave through lasers, and parry fireballs.',
     tags: ['VR', 'Meta Quest', 'Unity', 'Gaming', 'Fitness'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
     imageClass: 'squatopia',
@@ -60,7 +63,8 @@ const projects = [
     id: 'atmosmed',
     name: 'AtmosMed',
     role: 'CTO',
-    description: 'Community pharmacy chain in Tarlac, Philippines. Trusted partner in health and wellness with multiple branches serving the local community.',
+    description:
+      'Community pharmacy chain in Tarlac, Philippines. Trusted partner in health and wellness with multiple branches serving the local community.',
     tags: ['Healthcare', 'Pharmacy', 'E-commerce', 'Retail'],
     link: 'https://atmosmed.ph/',
     imageClass: 'atmosmed',
@@ -84,7 +88,9 @@ function Projects() {
                 loading="lazy"
               />
             ) : (
-              <div className={`project-image placeholder ${project.imageClass}`}>
+              <div
+                className={`project-image placeholder ${project.imageClass}`}
+              >
                 {project.initial}
               </div>
             )}
@@ -94,10 +100,17 @@ function Projects() {
               <p className="project-description">{project.description}</p>
               <div className="project-tags">
                 {project.tags.map((tag) => (
-                  <span key={`${project.id}-${tag}`} className="tag">{tag}</span>
+                  <span key={`${project.id}-${tag}`} className="tag">
+                    {tag}
+                  </span>
                 ))}
               </div>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-link"
+              >
                 View Project
               </a>
             </div>
