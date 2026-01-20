@@ -33,7 +33,8 @@ const experiences = [
   },
   {
     title: 'Lead Back-end Engineer',
-    company: 'Union Bank of the Philippines (via White Cloak)',
+    company:
+      'Union Bank of the Philippines (via White Cloak Technologies, Inc.)',
     duration: '2017 - 2020',
     description:
       'Led backend engineering for UnionBank Online serving millions of active users. Architected Java Spring Boot microservices on bare metal infrastructure processing millions of daily transactions. Designed core banking APIs for fund transfers, bill payments, and check deposits. Mentored engineers and established development standards across mobile, QA, and operations teams.',
@@ -41,7 +42,7 @@ const experiences = [
   },
   {
     title: 'Data Scientist',
-    company: 'Smart Communications (via Solutions Resource)',
+    company: 'Smart Communications (via Solutions Resource, Inc.)',
     duration: '2014 - 2016',
     description:
       "Applied machine learning to telecommunications data for one of the Philippines' largest telcos. Built NLP pipeline using Naive Bayes with n-grams for sentiment analysis on Twitter election data. Developed predictive models driving marketing and customer retention strategies.",
