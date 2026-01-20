@@ -16,20 +16,20 @@ const experiences = [
     logo: '/squatopia-logo.webp'
   },
   {
-    title: 'Chief Technology Officer',
-    company: 'AtmosMed Pharmacy',
-    duration: '2021 - Present',
-    description:
-      'Founded and lead technology operations for multi-branch pharmaceutical distribution company. Scaled from 1 to 4 pharmacy branches across Tarlac. Architected biometric attendance system achieving 99% data sync reduction. Built multi-database inventory platform with Django, GPS tracking for delivery fleet, and deployed infrastructure on Digital Ocean using Terraform.',
-    logo: '/atmosmed-logo.png'
-  },
-  {
     title: 'Senior Full-stack Engineer',
     company: 'Metagood (OnChainMonkey & Osura)',
     duration: '2021 - 2025',
     description:
       'Led architecture of multi-chain NFT platform serving 10,000+ token holders. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC). Designed cross-chain token tracking with real-time event monitoring. Built gamification systems including dual-currency economy and Discord/Twitter integrations. Developed Osura marketplace for Bitcoin Ordinals.',
     logo: '/metagood.jpg'
+  },
+  {
+    title: 'Chief Technology Officer',
+    company: 'AtmosMed Pharmacy',
+    duration: '2021 - Present',
+    description:
+      'Founded and lead technology operations for multi-branch pharmaceutical distribution company. Scaled from 1 to 4 pharmacy branches across Tarlac. Architected biometric attendance system achieving 99% data sync reduction. Built multi-database inventory platform with Django, GPS tracking for delivery fleet, and deployed infrastructure on Digital Ocean using Terraform.',
+    logo: '/atmosmed-logo.png'
   },
   {
     title: 'Lead Back-end Engineer',
