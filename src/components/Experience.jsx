@@ -44,7 +44,7 @@ const experiences = [
     company: 'Smart Communications',
     duration: '2014 - 2016',
     description:
-      'Applied machine learning to telecommunications data for one of the Philippines\' largest telcos. Built NLP pipeline using Naive Bayes with n-grams for sentiment analysis on Twitter election data. Developed predictive models driving marketing and customer retention strategies.',
+      "Applied machine learning to telecommunications data for one of the Philippines' largest telcos. Built NLP pipeline using Naive Bayes with n-grams for sentiment analysis on Twitter election data. Developed predictive models driving marketing and customer retention strategies.",
     logo: '/solutionsresource.jpg'
   }
 ]
