@@ -1,56 +1,96 @@
 # Clarke Plumo
 
-**Full-stack Engineer | Blockchain Developer | Entrepreneur**
+**Principal Software Engineer**
 
-[clarke.plumo@gmail.com](mailto:clarke.plumo@gmail.com) | [GitHub](https://github.com/clrke) | [LinkedIn](https://linkedin.com/in/clrke) | Philippines
-
----
-
-## Summary
-
-Software engineer with 10+ years building scalable fintech platforms, Web3 ecosystems, and VR experiences. Led backend engineering for Union Bank's mobile app serving millions of Filipinos. Pioneered Bitcoin Ordinals marketplaces. Currently shipping a VR game and running a pharmacy chain as CTO.
+clarke.plumo@gmail.com | [github.com/clrke](https://github.com/clrke) | [linkedin.com/in/clrke](https://linkedin.com/in/clrke) | Philippines
 
 ---
 
-## Experience
+## Professional Summary
 
-### Senior Full-stack Engineer | Metagood (OnChainMonkey & Osura)
-*2021 – 2025*
-- Built OnChainMonkey, one of the first 10K PFP collections stored entirely on-chain with all images and metadata generated in a single Ethereum transaction
-- Developed Osura, a premier marketplace for high-end Bitcoin Ordinals and digital art
-
-### Lead Back-end Engineer | Union Bank of the Philippines
-*2017 – 2020 (via White Cloak Technologies)*
-- Architected backend services for UnionBank Online mobile app handling millions of transactions
-- Delivered core banking features: fund transfers, bill payments, check deposits, real-time account management
-
-### Data Scientist | Smart Communications
-*2014 – 2016 (via Solutions Resource Inc.)*
-- Applied machine learning to telecommunications data, driving actionable business insights
+Principal-level engineer with 10+ years designing and delivering high-scale systems across fintech, Web3, and consumer products. Track record of architecting platforms that process millions of transactions, leading distributed engineering teams, and founding technology-driven businesses. Deep expertise in full-stack development, blockchain infrastructure, and system design at scale.
 
 ---
 
-## Entrepreneurship
+## Professional Experience
 
-**CTO, AtmosMed Pharmacy** (2021 – Present)
-Building and operating a community pharmacy chain in Tarlac, Philippines
+### Senior Full-stack Engineer
+**Metagood (OnChainMonkey & Osura)** | 2021 – 2025
 
-**Owner, Squatopia** (2024 – Present)
-Developing an infinite action roguelike VR game for Meta Quest
+Led architecture and development of multi-chain NFT platform serving 10,000+ token holders across Ethereum, Bitcoin, and Stacks blockchains.
 
-**Early Contributor, BetterGovPH** (2025)
-Improving government services through technology
+- Architected 32-package TypeScript monorepo (47,500+ LOC); delivered 1,282 commits across 4 years
+- Designed cross-chain token tracking system with real-time event monitoring and database replication
+- Built gamification infrastructure: dual-currency economy, XP progression, Discord/Twitter reward integrations
+- Scaled read-heavy workloads using MySQL read replicas on AWS RDS
+- Developed Osura marketplace for Bitcoin Ordinals with inscription and trading capabilities
+
+### Lead Back-end Engineer
+**Union Bank of the Philippines** (via White Cloak Technologies) | 2017 – 2020
+
+Led backend engineering for UnionBank Online, a mobile banking platform serving millions of active users.
+
+- Architected Java Spring Boot microservices on bare metal infrastructure processing millions of daily transactions
+- Designed and implemented core banking APIs: fund transfers, bill payments, check deposits, account management
+- Established backend development standards, code review practices, and deployment pipelines
+- Mentored junior engineers and coordinated with cross-functional teams across mobile, QA, and operations
+
+### Data Scientist
+**Smart Communications** (via Solutions Resource Inc.) | 2014 – 2016
+
+Applied machine learning to telecommunications data for one of the Philippines' largest telcos.
+
+- Built NLP pipeline using Naive Bayes with n-grams for sentiment analysis on Twitter election data
+- Developed predictive models driving marketing and customer retention strategies
+- Delivered actionable insights from large-scale telecommunications datasets
 
 ---
 
-## Skills
+## Entrepreneurship & Leadership
 
-**Languages:** JavaScript, TypeScript, Python, Go, Solidity, C#
-**Frontend:** React, Web3, GraphQL, REST APIs
-**Backend:** Node.js, PostgreSQL, MongoDB, Redis
-**Infrastructure:** AWS, Docker, Kubernetes
-**Blockchain:** Smart Contracts, Ethereum, Bitcoin Ordinals
-**Other:** Unity, VR Development, Data Science
+### Chief Technology Officer
+**AtmosMed Pharmacy** | 2021 – Present
+
+Founded and lead technology operations for a multi-branch pharmaceutical distribution company.
+
+- Scaled operations from 1 to 4 pharmacy branches across Tarlac, Philippines
+- Architected distributed attendance system with biometric integration; achieved 99% data sync reduction
+- Built multi-database inventory and quotation platform (Django, SQL Server, PostgreSQL)
+- Deployed cloud infrastructure on Digital Ocean using Terraform with automated CI/CD pipelines
+
+### Founder & Lead Developer
+**Squatopia** | 2024 – Present
+
+Designing and developing a VR fitness game for Meta Quest platforms.
+
+- Built Unity 6 application with 313+ C# scripts and Meta XR SDK integration
+- Designed combat system with 300+ abilities across 4-tier skill tree; 15+ enemy AI behaviors
+- Implemented fitness tracking for 15+ real-world movements with form validation
+- Engineered localization framework supporting 34+ languages including RTL scripts
+
+### Technical Contributor
+**BetterGovPH** | 2025
+
+Contributing to open-source initiative modernizing Philippine government digital services.
+
+- Developed React frontend components for portal serving 1,000+ indexed government services
+- Integrated Meilisearch for full-text search with advanced filtering capabilities
+- Built serverless data pipelines on Cloudflare Workers with D1 and KV storage
+- Implemented accessibility compliance (WCAG) with automated Playwright test coverage
+
+---
+
+## Technical Expertise
+
+| Domain | Technologies |
+|--------|-------------|
+| **Languages** | TypeScript, JavaScript, Python, Java, Go, C#, Solidity |
+| **Backend** | Node.js, Spring Boot, FastAPI, Django, Express |
+| **Data** | PostgreSQL, MySQL, MongoDB, Redis, SQL Server |
+| **Infrastructure** | AWS, Digital Ocean, Terraform, Docker, Kubernetes |
+| **Blockchain** | Ethereum, Bitcoin Ordinals, Stacks, Smart Contracts, ethers.js |
+| **Frontend** | React, Web3, GraphQL, REST API Design |
+| **Specialized** | Unity/VR Development, Machine Learning, System Design |
 
 ---
 
