@@ -2,10 +2,10 @@ const projects = [
   {
     id: 'bettergov',
     name: 'BetterGovPH',
-    role: 'Early Contributor',
+    role: 'Technical Contributor',
     description:
-      'An initiative to improve government services and transparency through modern technology solutions.',
-    tags: ['GovTech', 'Civic Tech', 'Public Service', 'Transparency'],
+      'Open-source government services portal with 50+ contributors. React frontend with 95+ components, Meilisearch indexing 1,000+ services, and Cloudflare Workers serverless backend.',
+    tags: ['React', 'TypeScript', 'Cloudflare', 'Meilisearch', 'Open Source'],
     link: 'https://bettergov.ph/',
     imageClass: 'bettergov',
     initial: 'BG',
@@ -16,8 +16,8 @@ const projects = [
     name: 'UnionBank Online',
     role: 'Lead Back-end Engineer',
     description:
-      'Mobile banking app serving millions of Filipinos. Features include fund transfers, bill payments, check deposits, and real-time account management.',
-    tags: ['Mobile Banking', 'iOS', 'Android', 'Finance', 'API Design'],
+      'Mobile banking platform serving millions of Filipinos. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.',
+    tags: ['Java', 'Spring Boot', 'Fintech', 'Microservices', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
     imageClass: 'unionbank',
     initial: 'UB',
@@ -28,8 +28,8 @@ const projects = [
     name: 'OnChainMonkey',
     role: 'Senior Full-stack Engineer',
     description:
-      'One of the first 10K PFP collections stored entirely on-chain. First to generate all images and metadata in a single transaction on Ethereum.',
-    tags: ['NFT', 'Ethereum', 'Bitcoin', 'Web3', 'Smart Contracts'],
+      'Multi-chain NFT platform with 10,000+ token holders. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.',
+    tags: ['TypeScript', 'Ethereum', 'Bitcoin', 'Web3', 'Monorepo'],
     link: 'https://onchainmonkey.com/',
     imageClass: 'ocm',
     initial: 'OCM',
@@ -40,7 +40,7 @@ const projects = [
     name: 'Osura',
     role: 'Senior Full-stack Engineer',
     description:
-      'Premier marketplace for high-end Bitcoin Ordinals collections. Curated platform for digital art permanently stored on the Bitcoin blockchain.',
+      'Premier marketplace for high-end Bitcoin Ordinals. Built inscription and trading capabilities for digital art permanently stored on the Bitcoin blockchain.',
     tags: ['Bitcoin Ordinals', 'NFT Marketplace', 'Web3', 'Digital Art'],
     link: 'https://osura.com/',
     imageClass: 'osura',
@@ -50,10 +50,10 @@ const projects = [
   {
     id: 'squatopia',
     name: 'Squatopia',
-    role: 'Owner',
+    role: 'Founder & Lead Developer',
     description:
-      'Infinite action roguelike VR game where your body is the controller. Squat to launch energy blasts, weave through lasers, and parry fireballs.',
-    tags: ['VR', 'Meta Quest', 'Unity', 'Gaming', 'Fitness'],
+      'VR fitness roguelike for Meta Quest. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.',
+    tags: ['Unity', 'C#', 'Meta Quest', 'VR', 'Fitness Gaming'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
     imageClass: 'squatopia',
     initial: 'SQ',
@@ -62,10 +62,10 @@ const projects = [
   {
     id: 'atmosmed',
     name: 'AtmosMed',
-    role: 'CTO',
+    role: 'Chief Technology Officer',
     description:
-      'Community pharmacy chain in Tarlac, Philippines. Trusted partner in health and wellness with multiple branches serving the local community.',
-    tags: ['Healthcare', 'Pharmacy', 'E-commerce', 'Retail'],
+      'Multi-branch pharmacy chain in Tarlac. Built biometric attendance (99% sync reduction), multi-database inventory system, GPS fleet tracking, and Terraform-deployed infrastructure.',
+    tags: ['Django', 'PostgreSQL', 'Terraform', 'GPS Tracking', 'Healthcare'],
     link: 'https://atmosmed.ph/',
     imageClass: 'atmosmed',
     initial: 'AM',

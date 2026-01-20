@@ -1,24 +1,31 @@
 const skills = [
-  'JavaScript',
   'TypeScript',
+  'JavaScript',
+  'Python',
+  'Java',
+  'Go',
+  'C#',
+  'Solidity',
   'React',
   'Node.js',
-  'Python',
-  'Go',
-  'Solidity',
-  'Unity',
-  'C#',
+  'Spring Boot',
+  'FastAPI',
+  'Django',
   'PostgreSQL',
+  'MySQL',
   'MongoDB',
   'Redis',
   'AWS',
+  'Terraform',
   'Docker',
   'Kubernetes',
   'GraphQL',
   'REST APIs',
   'Web3',
   'Smart Contracts',
-  'VR Development'
+  'Unity',
+  'VR Development',
+  'Machine Learning'
 ]
 
 function Skills() {

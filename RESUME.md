@@ -56,6 +56,7 @@ Founded and lead technology operations for a multi-branch pharmaceutical distrib
 - Scaled operations from 1 to 4 pharmacy branches across Tarlac, Philippines
 - Architected distributed attendance system with biometric integration; achieved 99% data sync reduction
 - Built multi-database inventory and quotation platform (Django, SQL Server, PostgreSQL)
+- Developed GPS tracking system for delivery fleet management and route optimization
 - Deployed cloud infrastructure on Digital Ocean using Terraform with automated CI/CD pipelines
 
 ### Founder & Lead Developer

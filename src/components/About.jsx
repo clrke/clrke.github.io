@@ -15,8 +15,8 @@ function About() {
           />
           <h1 className="profile-name">Clarke Plumo</h1>
           <p className="profile-headline">
-            <span className="highlight">Full-stack Engineer</span> | Game
-            Developer | Blockchain Enthusiast | AI Power User
+            <span className="highlight">Principal Software Engineer</span> |
+            Entrepreneur | Blockchain & VR Developer
           </p>
           <p className="profile-location">
             <svg
@@ -73,17 +73,19 @@ function About() {
         <h2>About</h2>
         <div className="about-text">
           <p>
-            Passionate software engineer with extensive experience in building
-            scalable web applications, mobile apps, and blockchain solutions. I
-            thrive at the intersection of technology and creativity, bringing
-            ideas to life through clean code and thoughtful architecture.
+            Principal-level engineer with 10+ years designing and delivering
+            high-scale systems across fintech, Web3, and consumer products.
+            Track record of architecting platforms that process millions of
+            transactions, leading distributed engineering teams, and founding
+            technology-driven businesses.
           </p>
           <p>
-            From leading backend engineering at one of the Philippines&apos;
-            largest banks to pioneering NFT marketplaces on Bitcoin, I&apos;ve
-            had the privilege of working on projects that impact millions of
-            users. Currently exploring the frontiers of VR gaming, healthcare
-            technology, and AI-assisted development with tools like Claude Code.
+            Led backend engineering for Union Bank&apos;s mobile app serving
+            millions of Filipinos. Contributed 1,200+ commits to a multi-chain
+            NFT platform. Currently shipping a VR fitness game for Meta Quest
+            and running a pharmacy chain as CTO. Deep expertise in system
+            design, blockchain infrastructure, and full-stack development at
+            scale.
           </p>
         </div>
       </section>
