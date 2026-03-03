@@ -24,6 +24,8 @@ const skills = [
   'REST APIs',
   'Web3',
   'Smart Contracts',
+  'Claude Code',
+  'AI-Assisted Dev',
   'Unity',
   'VR Development',
   'Machine Learning'

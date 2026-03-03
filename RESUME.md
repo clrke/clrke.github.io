@@ -8,7 +8,7 @@ clarke.plumo@gmail.com | [github.com/clrke](https://github.com/clrke) | [linkedi
 
 ## Professional Summary
 
-Principal-level engineer with 10+ years designing and delivering high-scale systems across fintech, Web3, and consumer products. Track record of architecting platforms that process millions of transactions, leading distributed engineering teams, and founding technology-driven businesses. Deep expertise in full-stack development, blockchain infrastructure, and system design at scale.
+Principal-level engineer with 10+ years designing and delivering high-scale systems across fintech, Web3, and consumer products. Track record of architecting platforms that process millions of transactions, leading distributed engineering teams, and founding technology-driven businesses. Deep expertise in full-stack development, blockchain infrastructure, and system design at scale. Active Claude Code power user — leveraging AI-assisted development for rapid prototyping, code review, and architectural exploration.
 
 ---
 
@@ -64,7 +64,7 @@ Founded and lead technology operations for a multi-branch pharmaceutical distrib
 
 Designing and developing a VR fitness game for Meta Quest platforms.
 
-- Built Unity 6 application with 313+ C# scripts and Meta XR SDK integration
+- Built Unity 6 application with 313+ C# scripts and Meta XR SDK integration; using Claude Code as primary development tool
 - Designed combat system with 300+ abilities across 4-tier skill tree; 15+ enemy AI behaviors
 - Implemented fitness tracking for 15+ real-world movements with form validation
 - Engineered localization framework supporting 34+ languages including RTL scripts
@@ -91,6 +91,7 @@ Contributing to open-source initiative modernizing Philippine government digital
 | **Infrastructure** | AWS, Digital Ocean, Terraform, Docker, Kubernetes |
 | **Blockchain** | Ethereum, Bitcoin Ordinals, Stacks, Smart Contracts, ethers.js |
 | **Frontend** | React, Web3, GraphQL, REST API Design |
+| **AI Tools** | Claude Code, AI-Assisted Development, Prompt Engineering |
 | **Specialized** | Unity/VR Development, Machine Learning, System Design |
 
 ---

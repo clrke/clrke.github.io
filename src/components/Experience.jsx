@@ -12,7 +12,7 @@ const experiences = [
     company: 'Squatopia',
     duration: '2024 - Present',
     description:
-      'Designing and developing VR fitness roguelike for Meta Quest. Built Unity 6 application with 313+ C# scripts and Meta XR SDK. Designed 300+ abilities across 4-tier skill tree with 15+ enemy AI behaviors. Implemented real-time body tracking for 15+ fitness movements and localization for 34+ languages.',
+      'Designing and developing VR fitness roguelike for Meta Quest. Built Unity 6 application with 313+ C# scripts and Meta XR SDK. Designed 300+ abilities across 4-tier skill tree with 15+ enemy AI behaviors. Implemented real-time body tracking for 15+ fitness movements and localization for 34+ languages. Using Claude Code as primary development tool for rapid prototyping, debugging, and code generation.',
     logo: '/squatopia-logo.webp'
   },
   {
