@@ -2,7 +2,7 @@ const projects = [
   {
     id: 'bettergov',
     name: 'BetterGovPH',
-    role: 'Technical Contributor',
+    role: 'Early Contributor',
     description:
       'Open-source government services portal with 50+ contributors. React frontend with 95+ components, Meilisearch indexing 1,000+ services, and Cloudflare Workers serverless backend.',
     tags: ['React', 'TypeScript', 'Cloudflare', 'Meilisearch', 'Open Source'],

@@ -1,6 +1,6 @@
 const experiences = [
   {
-    title: 'Technical Contributor',
+    title: 'Early Contributor',
     company: 'BetterGovPH',
     duration: '2025',
     description:

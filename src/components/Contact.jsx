@@ -56,14 +56,6 @@ function Contact() {
         </div>
       </section>
 
-      <blockquote className="quote-section">
-        <p className="quote-text">
-          &ldquo;Whether you think you can, or you think you can&apos;t,
-          you&apos;re right.&rdquo;
-        </p>
-        <cite className="quote-author">— Henry Ford</cite>
-      </blockquote>
-
       <footer className="footer">
         <p>
           Built with React |{' '}

@@ -15,8 +15,8 @@ function About() {
           />
           <h1 className="profile-name">Clarke Plumo</h1>
           <p className="profile-headline">
-            <span className="highlight">Principal Software Engineer</span> |
-            Entrepreneur | Blockchain & VR Developer
+            <span className="highlight">Senior Full-stack Engineer</span> |
+            Open to Remote Opportunities
           </p>
           <p className="profile-location">
             <svg
