@@ -85,6 +85,18 @@ async function getOCMFloorPrice() {
   return null
 }
 
+async function getEthPrice() {
+  try {
+    const data = await fetchJSON(
+      'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'
+    )
+    if (data.ethereum?.usd) return data.ethereum.usd
+  } catch (e) {
+    console.error('ETH price fetch failed:', e.message)
+  }
+  return null
+}
+
 async function main() {
   const fs = await import('fs')
 
@@ -96,17 +108,19 @@ async function main() {
 
   console.log('Fetching stats...')
 
-  const [squatopia, unionbank, ocm] = await Promise.allSettled([
+  const [squatopia, unionbank, ocm, ethPrice] = await Promise.allSettled([
     getSquatopiaStats(),
     getUnionBankStats(),
-    getOCMFloorPrice()
+    getOCMFloorPrice(),
+    getEthPrice()
   ])
 
   const stats = {
     updatedAt: new Date().toISOString(),
     squatopia: squatopia.value || existing.squatopia || { rating: 4.4, count: 46 },
     unionbank: unionbank.value || existing.unionbank || { rating: 4.7, count: 151267 },
-    ocm: ocm.value || existing.ocm || { floor: 0.33, currency: 'ETH' }
+    ocm: ocm.value || existing.ocm || { floor: 0.33, currency: 'ETH' },
+    ethUsd: ethPrice.value || existing.ethUsd || 2091
   }
 
   fs.writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2) + '\n')

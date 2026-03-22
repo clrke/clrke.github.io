@@ -1,5 +1,33 @@
 import { useState, useEffect } from 'react'
 
+function StatBadge({ children }) {
+  return (
+    <span
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '4px',
+        background: '#e8f5e9',
+        color: '#2e7d32',
+        padding: '2px 8px',
+        borderRadius: '12px',
+        fontSize: '12px',
+        fontWeight: 600,
+        fontFamily: "'JetBrains Mono', 'Fira Code', monospace",
+        whiteSpace: 'nowrap'
+      }}
+    >
+      {children}
+    </span>
+  )
+}
+
+function formatCount(n) {
+  if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (n >= 1000) return Math.round(n / 1000) + 'K'
+  return n.toString()
+}
+
 const projects = [
   {
     id: 'bettergov',
@@ -17,15 +45,12 @@ const projects = [
     id: 'unionbank',
     name: 'UnionBank Online',
     role: 'Lead Back-end Engineer',
-    descriptionFn: (stats) => {
+    description:
+      'Mobile banking platform serving millions of Filipinos. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.',
+    badgeFn: (stats) => {
       const s = stats?.unionbank
-      const badge = s
-        ? `(${s.rating}★, ${s.count >= 1000 ? Math.round(s.count / 1000) + 'K' : s.count} ratings)`
-        : ''
-      return `Mobile banking platform serving millions of Filipinos ${badge}. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.`.replace(
-        '  ',
-        ' '
-      )
+      if (!s) return null
+      return `${s.rating}★ · ${formatCount(s.count)} ratings`
     },
     tags: ['Java', 'Spring Boot', 'Fintech', 'Microservices', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
@@ -37,13 +62,16 @@ const projects = [
     id: 'ocm',
     name: 'OnChainMonkey',
     role: 'Senior Full-stack Engineer',
-    descriptionFn: (stats) => {
+    description:
+      'Multi-chain NFT platform with 10,000+ token holders. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.',
+    badgeFn: (stats) => {
       const s = stats?.ocm
-      const badge = s ? `(${s.floor} ${s.currency} floor)` : ''
-      return `Multi-chain NFT platform with 10,000+ token holders ${badge}. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.`.replace(
-        '  ',
-        ' '
-      )
+      const ethUsd = stats?.ethUsd
+      if (!s) return null
+      const usd = ethUsd
+        ? ` (~$${Math.round(s.floor * ethUsd).toLocaleString()})`
+        : ''
+      return `Floor: ${s.floor} ETH${usd}`
     },
     tags: ['TypeScript', 'Ethereum', 'Bitcoin', 'Web3', 'Monorepo'],
     link: 'https://onchainmonkey.com/',
@@ -67,13 +95,12 @@ const projects = [
     id: 'squatopia',
     name: 'Squatopia',
     role: 'Founder & Lead Developer',
-    descriptionFn: (stats) => {
+    description:
+      'VR fitness roguelike for Meta Quest. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.',
+    badgeFn: (stats) => {
       const s = stats?.squatopia
-      const badge = s ? `(${s.rating}★, ${s.count} ratings)` : ''
-      return `VR fitness roguelike for Meta Quest ${badge}. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.`.replace(
-        '  ',
-        ' '
-      )
+      if (!s) return null
+      return `${s.rating}★ · ${s.count} ratings`
     },
     tags: ['Unity', 'C#', 'Meta Quest', 'VR', 'Fitness Gaming'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
@@ -110,9 +137,7 @@ function Projects() {
       <h2>Projects</h2>
       <div className="projects-grid">
         {projects.map((project) => {
-          const description = project.descriptionFn
-            ? project.descriptionFn(stats)
-            : project.description
+          const badge = project.badgeFn ? project.badgeFn(stats) : null
 
           return (
             <div key={project.id} className="project-card">
@@ -131,9 +156,17 @@ function Projects() {
                 </div>
               )}
               <div className="project-content">
-                <h3>{project.name}</h3>
+                <h3>
+                  {project.name}
+                  {badge && (
+                    <>
+                      {' '}
+                      <StatBadge>{badge}</StatBadge>
+                    </>
+                  )}
+                </h3>
                 <p className="project-role">{project.role}</p>
-                <p className="project-description">{description}</p>
+                <p className="project-description">{project.description}</p>
                 <div className="project-tags">
                   {project.tags.map((tag) => (
                     <span key={`${project.id}-${tag}`} className="tag">
