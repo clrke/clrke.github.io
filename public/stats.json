@@ -1,0 +1,15 @@
+{
+  "updatedAt": "2026-03-22T09:05:18.520Z",
+  "squatopia": {
+    "rating": 4.4,
+    "count": 46
+  },
+  "unionbank": {
+    "rating": 4.7,
+    "count": 151267
+  },
+  "ocm": {
+    "floor": 0.33,
+    "currency": "ETH"
+  }
+}

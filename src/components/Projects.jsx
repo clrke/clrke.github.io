@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 const projects = [
   {
     id: 'bettergov',
@@ -15,8 +17,11 @@ const projects = [
     id: 'unionbank',
     name: 'UnionBank Online',
     role: 'Lead Back-end Engineer',
-    description:
-      'Mobile banking platform serving millions of Filipinos (4.7★, 151K ratings). Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.',
+    descriptionFn: (stats) => {
+      const s = stats?.unionbank
+      const badge = s ? `(${s.rating}★, ${s.count >= 1000 ? Math.round(s.count / 1000) + 'K' : s.count} ratings)` : ''
+      return `Mobile banking platform serving millions of Filipinos ${badge}. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.`.replace('  ', ' ')
+    },
     tags: ['Java', 'Spring Boot', 'Fintech', 'Microservices', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
     imageClass: 'unionbank',
@@ -27,8 +32,11 @@ const projects = [
     id: 'ocm',
     name: 'OnChainMonkey',
     role: 'Senior Full-stack Engineer',
-    description:
-      'Multi-chain NFT platform with 10,000+ token holders (0.33 ETH floor). Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.',
+    descriptionFn: (stats) => {
+      const s = stats?.ocm
+      const badge = s ? `(${s.floor} ${s.currency} floor)` : ''
+      return `Multi-chain NFT platform with 10,000+ token holders ${badge}. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.`.replace('  ', ' ')
+    },
     tags: ['TypeScript', 'Ethereum', 'Bitcoin', 'Web3', 'Monorepo'],
     link: 'https://onchainmonkey.com/',
     imageClass: 'ocm',
@@ -51,8 +59,11 @@ const projects = [
     id: 'squatopia',
     name: 'Squatopia',
     role: 'Founder & Lead Developer',
-    description:
-      'VR fitness roguelike for Meta Quest (4.4★, 46 ratings). Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.',
+    descriptionFn: (stats) => {
+      const s = stats?.squatopia
+      const badge = s ? `(${s.rating}★, ${s.count} ratings)` : ''
+      return `VR fitness roguelike for Meta Quest ${badge}. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.`.replace('  ', ' ')
+    },
     tags: ['Unity', 'C#', 'Meta Quest', 'VR', 'Fitness Gaming'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
     imageClass: 'squatopia',
@@ -74,48 +85,63 @@ const projects = [
 ]
 
 function Projects() {
+  const [stats, setStats] = useState(null)
+
+  useEffect(() => {
+    fetch('/stats.json')
+      .then(r => r.json())
+      .then(setStats)
+      .catch(() => {})
+  }, [])
+
   return (
     <section className="card" id="projects">
       <h2>Projects</h2>
       <div className="projects-grid">
-        {projects.map((project) => (
-          <div key={project.id} className="project-card">
-            {project.image ? (
-              <img
-                src={project.image}
-                alt={project.name}
-                className="project-image"
-                loading="lazy"
-              />
-            ) : (
-              <div
-                className={`project-image placeholder ${project.imageClass}`}
-              >
-                {project.initial}
+        {projects.map((project) => {
+          const description = project.descriptionFn
+            ? project.descriptionFn(stats)
+            : project.description
+
+          return (
+            <div key={project.id} className="project-card">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="project-image"
+                  loading="lazy"
+                />
+              ) : (
+                <div
+                  className={`project-image placeholder ${project.imageClass}`}
+                >
+                  {project.initial}
+                </div>
+              )}
+              <div className="project-content">
+                <h3>{project.name}</h3>
+                <p className="project-role">{project.role}</p>
+                <p className="project-description">{description}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag) => (
+                    <span key={`${project.id}-${tag}`} className="tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  View Project
+                </a>
               </div>
-            )}
-            <div className="project-content">
-              <h3>{project.name}</h3>
-              <p className="project-role">{project.role}</p>
-              <p className="project-description">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span key={`${project.id}-${tag}`} className="tag">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link"
-              >
-                View Project
-              </a>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )
