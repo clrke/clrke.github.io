@@ -19,8 +19,13 @@ const projects = [
     role: 'Lead Back-end Engineer',
     descriptionFn: (stats) => {
       const s = stats?.unionbank
-      const badge = s ? `(${s.rating}★, ${s.count >= 1000 ? Math.round(s.count / 1000) + 'K' : s.count} ratings)` : ''
-      return `Mobile banking platform serving millions of Filipinos ${badge}. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.`.replace('  ', ' ')
+      const badge = s
+        ? `(${s.rating}★, ${s.count >= 1000 ? Math.round(s.count / 1000) + 'K' : s.count} ratings)`
+        : ''
+      return `Mobile banking platform serving millions of Filipinos ${badge}. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.`.replace(
+        '  ',
+        ' '
+      )
     },
     tags: ['Java', 'Spring Boot', 'Fintech', 'Microservices', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
@@ -35,7 +40,10 @@ const projects = [
     descriptionFn: (stats) => {
       const s = stats?.ocm
       const badge = s ? `(${s.floor} ${s.currency} floor)` : ''
-      return `Multi-chain NFT platform with 10,000+ token holders ${badge}. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.`.replace('  ', ' ')
+      return `Multi-chain NFT platform with 10,000+ token holders ${badge}. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.`.replace(
+        '  ',
+        ' '
+      )
     },
     tags: ['TypeScript', 'Ethereum', 'Bitcoin', 'Web3', 'Monorepo'],
     link: 'https://onchainmonkey.com/',
@@ -62,7 +70,10 @@ const projects = [
     descriptionFn: (stats) => {
       const s = stats?.squatopia
       const badge = s ? `(${s.rating}★, ${s.count} ratings)` : ''
-      return `VR fitness roguelike for Meta Quest ${badge}. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.`.replace('  ', ' ')
+      return `VR fitness roguelike for Meta Quest ${badge}. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.`.replace(
+        '  ',
+        ' '
+      )
     },
     tags: ['Unity', 'C#', 'Meta Quest', 'VR', 'Fitness Gaming'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
@@ -89,7 +100,7 @@ function Projects() {
 
   useEffect(() => {
     fetch('/stats.json')
-      .then(r => r.json())
+      .then((r) => r.json())
       .then(setStats)
       .catch(() => {})
   }, [])
