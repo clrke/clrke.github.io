@@ -52,7 +52,7 @@ const projects = [
     name: 'Squatopia',
     role: 'Founder & Lead Developer',
     description:
-      'VR fitness roguelike for Meta Quest. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.',
+      'VR fitness roguelike for Meta Quest (4.4★, 46 ratings). Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.',
     tags: ['Unity', 'C#', 'Meta Quest', 'VR', 'Fitness Gaming'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
     imageClass: 'squatopia',
