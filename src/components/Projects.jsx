@@ -118,8 +118,8 @@ const projects = [
     name: 'AtmosMed',
     role: 'Chief Technology Officer',
     description:
-      'Pharmacy chain and drug distribution company in Tarlac (4 branches). Built entire tech stack from zero: biometric attendance (99% sync reduction), multi-database inventory, GPS fleet tracking, and Terraform-deployed infrastructure on DigitalOcean.',
-    badgeFn: () => '4 branches',
+      'Pharmacy chain and drug distribution company in Tarlac (3 branches). Built entire tech stack from zero: biometric attendance (99% sync reduction), multi-database inventory, GPS fleet tracking, and Terraform-deployed infrastructure on DigitalOcean.',
+    badgeFn: () => '3 branches',
     tags: ['Django', 'PostgreSQL', 'Terraform', 'GPS Tracking', 'Healthcare'],
     link: 'https://atmosmed.ph/',
     imageClass: 'atmosmed',
