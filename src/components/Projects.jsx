@@ -89,8 +89,14 @@ const projects = [
     name: 'Osura',
     role: 'Senior Full-stack Engineer',
     description:
-      'Curated marketplace for high-end Bitcoin Ordinals backed by $5M seed (Sora Ventures). Launched Frontline generative art collection (10,000 pieces, 4,000+ unique wallets). Built inscription and trading capabilities for digital art on Bitcoin.',
-    tags: ['Bitcoin Ordinals', 'NFT Marketplace', 'Web3', 'Digital Art'],
+      'Curated marketplace for high-end Bitcoin Ordinals backed by $5M seed (Sora Ventures). Featured Asprey Bugatti Egg Collection (111 pieces, $20K-$200K+) and Frontline (10,000 pieces, 4,000+ wallets). Pioneered recursive inscriptions - inscribed p5.js and Three.js on Bitcoin.',
+    badgeFn: () => '$5M seed',
+    tags: [
+      'Bitcoin Ordinals',
+      'NFT Marketplace',
+      'Web3',
+      'Recursive Inscriptions'
+    ],
     link: 'https://osura.com/',
     imageClass: 'osura',
     initial: 'OS',
