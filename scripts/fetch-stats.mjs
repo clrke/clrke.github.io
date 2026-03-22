@@ -85,6 +85,21 @@ async function getOCMFloorPrice() {
   return null
 }
 
+async function getBetterGovStats() {
+  try {
+    const data = await fetchJSON(
+      'https://api.github.com/repos/bettergovph/bettergov'
+    )
+    return {
+      stars: data.stargazers_count,
+      forks: data.forks_count
+    }
+  } catch (e) {
+    console.error('BetterGov GitHub fetch failed:', e.message)
+  }
+  return null
+}
+
 async function getEthPrice() {
   try {
     const data = await fetchJSON(
@@ -108,19 +123,22 @@ async function main() {
 
   console.log('Fetching stats...')
 
-  const [squatopia, unionbank, ocm, ethPrice] = await Promise.allSettled([
-    getSquatopiaStats(),
-    getUnionBankStats(),
-    getOCMFloorPrice(),
-    getEthPrice()
-  ])
+  const [squatopia, unionbank, ocm, ethPrice, bettergov] =
+    await Promise.allSettled([
+      getSquatopiaStats(),
+      getUnionBankStats(),
+      getOCMFloorPrice(),
+      getEthPrice(),
+      getBetterGovStats()
+    ])
 
   const stats = {
     updatedAt: new Date().toISOString(),
     squatopia: squatopia.value || existing.squatopia || { rating: 4.4, count: 46 },
     unionbank: unionbank.value || existing.unionbank || { rating: 4.7, count: 151267 },
     ocm: ocm.value || existing.ocm || { floor: 0.33, currency: 'ETH' },
-    ethUsd: ethPrice.value || existing.ethUsd || 2091
+    ethUsd: ethPrice.value || existing.ethUsd || 2091,
+    bettergov: bettergov.value || existing.bettergov || { stars: 442, forks: 205 }
   }
 
   fs.writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2) + '\n')

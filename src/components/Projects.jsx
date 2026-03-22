@@ -34,7 +34,12 @@ const projects = [
     name: 'BetterGovPH',
     role: 'Early Contributor',
     description:
-      'Open-source government services portal with 50+ contributors. React frontend with 95+ components, Meilisearch indexing 1,000+ services, and Cloudflare Workers serverless backend.',
+      'Open-source civic tech portal analyzing the PH national budget in collaboration with the Senate Budget Committee. React frontend with 95+ components, Meilisearch indexing 1,000+ services, and Cloudflare Workers serverless backend.',
+    badgeFn: (stats) => {
+      const s = stats?.bettergov
+      if (!s) return null
+      return `${s.stars}★ · ${s.forks} forks`
+    },
     tags: ['React', 'TypeScript', 'Cloudflare', 'Meilisearch', 'Open Source'],
     link: 'https://bettergov.ph/',
     imageClass: 'bettergov',
@@ -84,7 +89,7 @@ const projects = [
     name: 'Osura',
     role: 'Senior Full-stack Engineer',
     description:
-      'Premier marketplace for high-end Bitcoin Ordinals. Built inscription and trading capabilities for digital art permanently stored on the Bitcoin blockchain.',
+      'Curated marketplace for high-end Bitcoin Ordinals backed by $5M seed (Sora Ventures). Launched Frontline generative art collection (10,000 pieces, 4,000+ unique wallets). Built inscription and trading capabilities for digital art on Bitcoin.',
     tags: ['Bitcoin Ordinals', 'NFT Marketplace', 'Web3', 'Digital Art'],
     link: 'https://osura.com/',
     imageClass: 'osura',
@@ -113,7 +118,8 @@ const projects = [
     name: 'AtmosMed',
     role: 'Chief Technology Officer',
     description:
-      'Multi-branch pharmacy chain in Tarlac. Built biometric attendance (99% sync reduction), multi-database inventory system, GPS fleet tracking, and Terraform-deployed infrastructure.',
+      'Pharmacy chain and drug distribution company in Tarlac (4 branches). Built entire tech stack from zero: biometric attendance (99% sync reduction), multi-database inventory, GPS fleet tracking, and Terraform-deployed infrastructure on DigitalOcean.',
+    badgeFn: () => '4 branches',
     tags: ['Django', 'PostgreSQL', 'Terraform', 'GPS Tracking', 'Healthcare'],
     link: 'https://atmosmed.ph/',
     imageClass: 'atmosmed',

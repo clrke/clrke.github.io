@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-22T09:05:18.520Z",
+  "updatedAt": "2026-03-22T09:38:51.912Z",
   "squatopia": {
     "rating": 4.4,
     "count": 46
@@ -12,5 +12,9 @@
     "floor": 0.33,
     "currency": "ETH"
   },
-  "ethUsd": 2091
+  "ethUsd": 2084.05,
+  "bettergov": {
+    "stars": 442,
+    "forks": 205
+  }
 }
