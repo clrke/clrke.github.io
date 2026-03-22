@@ -16,7 +16,7 @@ const projects = [
     name: 'UnionBank Online',
     role: 'Lead Back-end Engineer',
     description:
-      'Mobile banking platform serving millions of Filipinos. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.',
+      'Mobile banking platform serving millions of Filipinos (4.7★, 151K ratings). Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.',
     tags: ['Java', 'Spring Boot', 'Fintech', 'Microservices', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
     imageClass: 'unionbank',
@@ -28,7 +28,7 @@ const projects = [
     name: 'OnChainMonkey',
     role: 'Senior Full-stack Engineer',
     description:
-      'Multi-chain NFT platform with 10,000+ token holders. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.',
+      'Multi-chain NFT platform with 10,000+ token holders (0.33 ETH floor). Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.',
     tags: ['TypeScript', 'Ethereum', 'Bitcoin', 'Web3', 'Monorepo'],
     link: 'https://onchainmonkey.com/',
     imageClass: 'ocm',
