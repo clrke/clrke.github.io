@@ -1,20 +1,20 @@
 {
-  "updatedAt": "2026-06-22T10:04:51.463Z",
+  "updatedAt": "2026-06-23T09:12:00.079Z",
   "squatopia": {
     "rating": 4.2,
     "count": 50
   },
   "unionbank": {
     "rating": 4.7,
-    "count": 161714
+    "count": 161755
   },
   "ocm": {
-    "floor": 0.45,
+    "floor": 0.42,
     "currency": "ETH"
   },
-  "ethUsd": 1745.12,
+  "ethUsd": 1647.9,
   "bettergov": {
     "stars": 482,
-    "forks": 240
+    "forks": 241
   }
 }
