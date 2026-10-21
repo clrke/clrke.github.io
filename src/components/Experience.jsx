@@ -1,5 +1,13 @@
 const experiences = [
   {
+    title: 'Creator & Lead Engineer',
+    company:
+      'Agent Session Orchestration Platform (Personal Project, Private Repo)',
+    duration: '2026 (Feb - Present)',
+    description:
+      'Designed and operate a production agent supervision platform that runs and multiplexes concurrent CLI coding agents as isolated child processes, one per tracked project. Built a bridge server, Discord service, and browser extension (~9,600 LOC TypeScript); 333+ commits over 7 months, running continuously under PM2. Implemented per-project mutex queues with safe process-tree teardown, automatic context-window management (compaction at 75% utilization, full session rollover via durable handoff documents), persistent cross-session USD cost accounting, exponential-backoff retry with multi-provider model fallback, and an autonomous decision loop with urgency scoring and a hard kill-switch after 30 consecutive unattended actions. Also built a custom MCP (Model Context Protocol) server using the official Python SDK, wired into daily agent tooling.'
+  },
+  {
     title: 'Early Contributor',
     company: 'BetterGovPH',
     duration: '2025',
