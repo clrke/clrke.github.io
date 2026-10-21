@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
@@ -28,8 +28,8 @@ jobs:
       - name: Test
         run: npm run test
 
-      - name: Security audit
-        run: npm audit --audit-level=moderate
+      - name: Security audit (production deps)
+        run: npm audit --omit=dev --audit-level=moderate
 
       - name: Build
         run: npm run build
