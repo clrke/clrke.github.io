@@ -28,5 +28,10 @@ jobs:
           git diff --quiet public/stats.json || {
             git add public/stats.json
             git commit -m "chore: update project stats [skip ci]"
-            git push
+            # Rebase onto anything pushed during the run, retry once.
+            for i in 1 2; do
+              git pull --rebase origin master && git push && exit 0
+              sleep 10
+            done
+            exit 1
           }

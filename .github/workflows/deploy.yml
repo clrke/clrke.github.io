@@ -25,7 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          # After a stats run, deploy the latest master (which includes the
+          # stats commit), not the commit the stats run started from.
+          ref: ${{ github.event_name == 'workflow_run' && 'master' || github.sha }}
 
       - uses: actions/setup-node@v7
         with:

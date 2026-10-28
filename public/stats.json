@@ -1,5 +1,11 @@
 {
-  "updatedAt": "2026-10-28T08:10:57.019Z",
+  "updatedAt": "2026-10-28T10:01:35.788Z",
+  "fetchedAt": {
+    "squatopia": "2026-10-28T10:01:35.788Z",
+    "unionbank": "2026-10-28T10:01:35.788Z",
+    "ocm": "2026-10-28T10:01:35.788Z",
+    "ethUsd": "2026-10-28T10:01:35.788Z"
+  },
   "squatopia": {
     "rating": 4.2,
     "count": 50
@@ -12,9 +18,5 @@
     "floor": 0.2,
     "currency": "ETH"
   },
-  "ethUsd": 2361.16,
-  "bettergov": {
-    "stars": 541,
-    "forks": 273
-  }
+  "ethUsd": 2369.73
 }

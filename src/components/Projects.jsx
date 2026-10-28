@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { liveBadge } from '../lib/badges'
 
 function StatBadge({ children }) {
   return (
@@ -22,12 +23,6 @@ function StatBadge({ children }) {
   )
 }
 
-function formatCount(n) {
-  if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M'
-  if (n >= 1000) return Math.round(n / 1000) + 'K'
-  return n.toString()
-}
-
 const projects = [
   {
     id: 'bettergov',
@@ -35,11 +30,6 @@ const projects = [
     role: 'Early Contributor',
     description:
       'Open-source civic tech portal analyzing the PH national budget in collaboration with the Senate Budget Committee. React frontend with 95+ components, Meilisearch indexing 1,000+ services, and Cloudflare Workers serverless backend.',
-    badgeFn: (stats) => {
-      const s = stats?.bettergov
-      if (!s) return null
-      return `${s.stars}★ · ${s.forks} forks`
-    },
     tags: ['React', 'TypeScript', 'Cloudflare', 'Meilisearch', 'Open Source'],
     link: 'https://bettergov.ph/',
     imageClass: 'bettergov',
@@ -52,11 +42,7 @@ const projects = [
     role: 'Lead Back-end Engineer',
     description:
       'Mobile banking platform serving millions of Filipinos. Architected Java Spring Boot microservices on bare metal processing millions of daily transactions.',
-    badgeFn: (stats) => {
-      const s = stats?.unionbank
-      if (!s) return null
-      return `${s.rating}★ · ${formatCount(s.count)} ratings`
-    },
+    badgeFn: (stats) => liveBadge('unionbank', stats),
     tags: ['Java', 'Spring Boot', 'Fintech', 'Microservices', 'API Design'],
     link: 'https://apps.apple.com/no/app/unionbank-online/id1242291412',
     imageClass: 'unionbank',
@@ -69,15 +55,7 @@ const projects = [
     role: 'Senior Full-stack Engineer',
     description:
       'Multi-chain NFT platform with 10,000+ token holders. Contributed 1,282 commits to 32-package TypeScript monorepo (47,500+ LOC) across Ethereum, Bitcoin, and Stacks.',
-    badgeFn: (stats) => {
-      const s = stats?.ocm
-      const ethUsd = stats?.ethUsd
-      if (!s) return null
-      const usd = ethUsd
-        ? ` (~$${Math.round(s.floor * ethUsd).toLocaleString()})`
-        : ''
-      return `Floor: ${s.floor} ETH${usd}`
-    },
+    badgeFn: (stats) => liveBadge('ocm', stats),
     tags: ['TypeScript', 'Ethereum', 'Bitcoin', 'Web3', 'Monorepo'],
     link: 'https://onchainmonkey.com/',
     imageClass: 'ocm',
@@ -108,11 +86,7 @@ const projects = [
     role: 'Founder & Lead Developer',
     description:
       'VR fitness roguelike for Meta Quest. Unity 6 with 313+ C# scripts, 300+ abilities, 15+ enemy AI behaviors, body tracking for 15+ movements, and 34+ language support.',
-    badgeFn: (stats) => {
-      const s = stats?.squatopia
-      if (!s) return null
-      return `${s.rating}★ · ${s.count} ratings`
-    },
+    badgeFn: (stats) => liveBadge('squatopia', stats),
     tags: ['Unity', 'C#', 'Meta Quest', 'VR', 'Fitness Gaming'],
     link: 'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/',
     imageClass: 'squatopia',
@@ -138,8 +112,8 @@ function Projects() {
   const [stats, setStats] = useState(null)
 
   useEffect(() => {
-    fetch('/stats.json')
-      .then((r) => r.json())
+    fetch(`${import.meta.env.BASE_URL}stats.json`)
+      .then((r) => (r.ok ? r.json() : null))
       .then(setStats)
       .catch(() => {})
   }, [])

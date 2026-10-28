@@ -19,8 +19,8 @@
     "preview": "vite preview",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
-    "format": "prettier --check src/",
-    "format:fix": "prettier --write src/",
+    "format": "prettier --check src/ scripts/ index.html",
+    "format:fix": "prettier --write src/ scripts/ index.html",
     "test": "vitest run",
     "test:watch": "vitest"
   },

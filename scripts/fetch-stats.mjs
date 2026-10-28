@@ -2,10 +2,81 @@
 /**
  * Fetches live stats for portfolio project cards.
  * Run via GitHub Actions cron or manually: node scripts/fetch-stats.mjs
- * Writes to public/stats.json
+ * Writes to public/stats.json.
+ *
+ * Each source gets its own timestamp in `fetchedAt`. When a source fails,
+ * its previous value and timestamp are kept, so the site can hide badges
+ * that have gone stale instead of showing frozen numbers. Failures are
+ * printed as GitHub Actions warnings so they show up on the run.
  */
+import { readFileSync, writeFileSync } from 'node:fs'
+import { pathToFileURL } from 'node:url'
 
 const STATS_FILE = 'public/stats.json'
+export const SOURCES = ['squatopia', 'unionbank', 'ocm', 'ethUsd']
+
+const round = (n, places) => Math.round(n * 10 ** places) / 10 ** places
+const isNum = (n) => typeof n === 'number' && Number.isFinite(n)
+
+// ---- Parsers: pure, return null when the payload is unusable ----
+
+export function parseSquatopiaHtml(html) {
+  const rating = html?.match(/"ratingValue"\s*:\s*"?([\d.]+)/)
+  const count = html?.match(/"ratingCount"\s*:\s*"?(\d+)/)
+  if (!rating || !count) return null
+  const value = { rating: parseFloat(rating[1]), count: parseInt(count[1], 10) }
+  return isNum(value.rating) && isNum(value.count) ? value : null
+}
+
+export function parseAppStoreLookup(data) {
+  const app = data?.results?.[0]
+  if (!isNum(app?.averageUserRating) || !isNum(app?.userRatingCount)) {
+    return null
+  }
+  return { rating: round(app.averageUserRating, 1), count: app.userRatingCount }
+}
+
+export function parseOpenSeaStats(data) {
+  const floor = data?.total?.floor_price
+  return isNum(floor) ? { floor: round(floor, 2), currency: 'ETH' } : null
+}
+
+export function parseCoinGeckoNft(data) {
+  const floor = data?.floor_price?.native_currency
+  return isNum(floor) ? { floor: round(floor, 2), currency: 'ETH' } : null
+}
+
+export function parseEthPrice(data) {
+  const usd = data?.ethereum?.usd
+  return isNum(usd) && usd > 0 ? usd : null
+}
+
+// ---- Merge: fresh values win, failed sources keep their old value ----
+
+export function buildStats(results, existing = {}, now = new Date()) {
+  const iso = now.toISOString()
+  const oldStamps = existing.fetchedAt ?? {}
+  const stats = { updatedAt: iso, fetchedAt: {} }
+  const failed = []
+
+  for (const key of SOURCES) {
+    const value = results[key]
+    if (value != null) {
+      stats[key] = value
+      stats.fetchedAt[key] = iso
+    } else {
+      failed.push(key)
+      if (existing[key] != null) {
+        stats[key] = existing[key]
+        // Files from before per-source stamps only have updatedAt.
+        stats.fetchedAt[key] = oldStamps[key] ?? existing.updatedAt ?? null
+      }
+    }
+  }
+  return { stats, failed }
+}
+
+// ---- Network ----
 
 async function fetchJSON(url) {
   const res = await fetch(url)
@@ -21,129 +92,83 @@ async function fetchText(url) {
   return res.text()
 }
 
-async function getSquatopiaStats() {
-  try {
-    const html = await fetchText(
-      'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/'
-    )
-    const ratingMatch = html.match(/"ratingValue"\s*:\s*([\d.]+)/)
-    const countMatch = html.match(/"ratingCount"\s*:\s*(\d+)/)
-    if (ratingMatch && countMatch) {
-      return { rating: parseFloat(ratingMatch[1]), count: parseInt(countMatch[1]) }
-    }
-  } catch (e) {
-    console.error('Squatopia fetch failed:', e.message)
-  }
-  return null
+function warn(message) {
+  // GitHub Actions turns this into a visible annotation on the run.
+  if (process.env.GITHUB_ACTIONS)
+    console.log(`::warning title=Stats::${message}`)
+  else console.warn(`warning: ${message}`)
 }
 
-async function getUnionBankStats() {
+async function attempt(label, fn) {
   try {
-    // Apple lookup API - no auth needed
-    const data = await fetchJSON(
-      'https://itunes.apple.com/lookup?id=1242291412&country=ph'
-    )
-    if (data.results?.[0]) {
-      const app = data.results[0]
-      return {
-        rating: Math.round(app.averageUserRating * 10) / 10,
-        count: app.userRatingCount
-      }
-    }
+    const value = await fn()
+    if (value == null) warn(`${label}: response had no usable data`)
+    return value
   } catch (e) {
-    console.error('UnionBank fetch failed:', e.message)
+    warn(`${label}: ${e.message}`)
+    return null
   }
-  return null
 }
 
-async function getOCMFloorPrice() {
-  try {
-    // OpenSea API v2 - no auth needed for basic collection stats
-    const data = await fetchJSON(
-      'https://api.opensea.io/api/v2/collections/onchainmonkey/stats'
+async function fetchAll() {
+  const [squatopia, unionbank, ocm, ethUsd] = await Promise.all([
+    attempt('Squatopia (Meta store)', async () =>
+      parseSquatopiaHtml(
+        await fetchText(
+          'https://www.meta.com/experiences/squatopia-infinite-action-roguelike/5461039960620791/'
+        )
+      )
+    ),
+    attempt('UnionBank (App Store)', async () =>
+      parseAppStoreLookup(
+        await fetchJSON(
+          'https://itunes.apple.com/lookup?id=1242291412&country=ph'
+        )
+      )
+    ),
+    (async () =>
+      (await attempt('OCM floor (OpenSea)', async () =>
+        parseOpenSeaStats(
+          await fetchJSON(
+            'https://api.opensea.io/api/v2/collections/onchainmonkey/stats'
+          )
+        )
+      )) ??
+      (await attempt('OCM floor (CoinGecko fallback)', async () =>
+        parseCoinGeckoNft(
+          await fetchJSON('https://api.coingecko.com/api/v3/nfts/onchainmonkey')
+        )
+      )))(),
+    attempt('ETH price (CoinGecko)', async () =>
+      parseEthPrice(
+        await fetchJSON(
+          'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'
+        )
+      )
     )
-    if (data.total?.floor_price != null) {
-      return { floor: Math.round(data.total.floor_price * 100) / 100, currency: 'ETH' }
-    }
-  } catch (e) {
-    console.error('OCM floor fetch failed:', e.message)
-  }
-  // Fallback: try CoinGecko
-  try {
-    const data = await fetchJSON(
-      'https://api.coingecko.com/api/v3/nfts/onchainmonkey'
-    )
-    if (data.floor_price?.native_currency != null) {
-      return {
-        floor: Math.round(data.floor_price.native_currency * 100) / 100,
-        currency: 'ETH'
-      }
-    }
-  } catch (e) {
-    console.error('OCM CoinGecko fallback failed:', e.message)
-  }
-  return null
-}
-
-async function getBetterGovStats() {
-  try {
-    const data = await fetchJSON(
-      'https://api.github.com/repos/bettergovph/bettergov'
-    )
-    return {
-      stars: data.stargazers_count,
-      forks: data.forks_count
-    }
-  } catch (e) {
-    console.error('BetterGov GitHub fetch failed:', e.message)
-  }
-  return null
-}
-
-async function getEthPrice() {
-  try {
-    const data = await fetchJSON(
-      'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'
-    )
-    if (data.ethereum?.usd) return data.ethereum.usd
-  } catch (e) {
-    console.error('ETH price fetch failed:', e.message)
-  }
-  return null
+  ])
+  return { squatopia, unionbank, ocm, ethUsd }
 }
 
 async function main() {
-  const fs = await import('fs')
-
-  // Load existing stats as fallback
   let existing = {}
   try {
-    existing = JSON.parse(fs.readFileSync(STATS_FILE, 'utf8'))
-  } catch {}
-
-  console.log('Fetching stats...')
-
-  const [squatopia, unionbank, ocm, ethPrice, bettergov] =
-    await Promise.allSettled([
-      getSquatopiaStats(),
-      getUnionBankStats(),
-      getOCMFloorPrice(),
-      getEthPrice(),
-      getBetterGovStats()
-    ])
-
-  const stats = {
-    updatedAt: new Date().toISOString(),
-    squatopia: squatopia.value || existing.squatopia || { rating: 4.4, count: 46 },
-    unionbank: unionbank.value || existing.unionbank || { rating: 4.7, count: 151267 },
-    ocm: ocm.value || existing.ocm || { floor: 0.33, currency: 'ETH' },
-    ethUsd: ethPrice.value || existing.ethUsd || 2091,
-    bettergov: bettergov.value || existing.bettergov || { stars: 442, forks: 205 }
+    existing = JSON.parse(readFileSync(STATS_FILE, 'utf8'))
+  } catch {
+    // First run or unreadable file: start empty.
   }
 
-  fs.writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2) + '\n')
+  console.log('Fetching stats...')
+  const { stats, failed } = buildStats(await fetchAll(), existing)
+  writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2) + '\n')
   console.log('Stats written to', STATS_FILE)
   console.log(JSON.stringify(stats, null, 2))
+  if (failed.length) warn(`kept previous values for: ${failed.join(', ')}`)
 }
 
-main().catch(console.error)
+if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+  main().catch((e) => {
+    console.error(e)
+    process.exitCode = 1
+  })
+}
